@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">LayoutsHW</string>
+    <!--    Exercise 1 -->
+    <string name="attractions">Attractions</string>
+    <string name="dining">Dining</string>
+    <string name="education">Education</string>
+    <string name="family">Family</string>
+    <string name="health">Health</string>
+    <string name="office">Office</string>
+    <string name="promotions">Promotions</string>
+    <string name="radio">Radio</string>
+    <string name="recipes">Recipes</string>
+    <string name="sports">Sports</string>
+
+    <!--    Exercise 2 -->
+    <string name="title">Title</string>
+    <string name="price">Price</string>
+    <string name="location">Location</string>
+    <string name="ex2_description">Description</string>
+    <string name="inventory">Inventory</string>
+    <string name="weight">Weight</string>
+
+    <!--    Exercise 3 -->
+    <string name="sign_in_lower">Sign in</string>
+    <string name="sign_in_upper">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember">Remember</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="just_sign_in">* Just sign in</string>
+
+    <!--    Exercise 4 -->
+    <string name="android_title">Android</string>
+    <string name="posts">125 \nPosts</string>
+    <string name="followers">20K \nFollowers</string>
+    <string name="following">22 \nFollowing</string>
+    <string name="username">Username</string>
+    <string name="address">Address</string>
+    <string name="ex4_description">Description</string>
+    <string name="directions">DIRECTIONS</string>
+    <string name="call">CALL</string>
+    <string name="save">SAVE</string>
+    <string name="website">WEBSITE</string>
+
+    <!--    Exercise 5 -->
+    <string name="certificated">Certificated</string>
+    <string name="layouts">Layouts</string>
+    <string name="views">WEBSITE</string>
+
+</resources>
