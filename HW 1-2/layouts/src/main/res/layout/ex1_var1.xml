@@ -1,0 +1,237 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+    <TableRow>
+
+        <ImageView
+            android:id="@+id/attractionsIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:padding="@dimen/ex1_allWidgetsPadding"
+            android:src="@drawable/ex1_attractions" />
+
+        <TextView
+            android:id="@+id/attractionsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/attractions"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/diningIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_dining"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/diningTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/dining"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/educationIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_education"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/educationTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/education"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/familyIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_family"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/familyTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/family"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="16dp"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/healthIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_health"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/healthTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/health"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="16dp"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/officeIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_office"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/officeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/office"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/promotionsIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_promotions"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/promotionsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/promotions"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/radioIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_radio"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/radioTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/radio"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/recipesIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_recipes"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/recipesTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/recipes"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:id="@+id/sportsIV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/ex1_sports"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+        <TextView
+            android:id="@+id/sportsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6.5"
+            android:text="@string/sports"
+            android:textSize="@dimen/ex1_textSize"
+            android:textColor="@color/ex1_textColor"
+            android:textAlignment="viewStart"
+            android:padding="@dimen/ex1_allWidgetsPadding"/>
+
+    </TableRow>
+
+</TableLayout>

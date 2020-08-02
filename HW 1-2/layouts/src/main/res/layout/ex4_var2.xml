@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/ex4_framePadding">
+
+    <TextView
+        android:id="@+id/android_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/android_title"
+        android:textSize="@dimen/ex4_textSizeMajor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_photo"/>
+
+    <ImageView
+        android:id="@+id/user_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_user_photo"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+
+
+        app:layout_constraintTop_toBottomOf="@id/android_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/posts"
+        app:layout_constraintBottom_toTopOf="@id/username"/>
+
+    <TextView
+        android:id="@+id/posts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/posts"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/android_title"
+        app:layout_constraintLeft_toRightOf="@+id/user_photo"
+        app:layout_constraintRight_toLeftOf="@id/followers"
+        app:layout_constraintBottom_toTopOf="@id/username"/>
+
+    <TextView
+        android:id="@+id/followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/followers"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/android_title"
+        app:layout_constraintLeft_toRightOf="@+id/posts"
+        app:layout_constraintRight_toLeftOf="@id/following"
+        app:layout_constraintBottom_toTopOf="@id/username"/>
+
+    <TextView
+        android:id="@+id/following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/following"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/android_title"
+        app:layout_constraintLeft_toRightOf="@+id/followers"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/username" />
+
+
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/username"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+
+        app:layout_constraintTop_toBottomOf="@id/user_photo"
+        app:layout_constraintLeft_toLeftOf="parents"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/address" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+
+        app:layout_constraintTop_toBottomOf="@id/username"
+        app:layout_constraintLeft_toLeftOf="parents"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ex4_description" />
+
+    <TextView
+        android:id="@+id/ex4_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ex4_description"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/black_for_exercise_3"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+
+        app:layout_constraintTop_toBottomOf="@id/address"
+        app:layout_constraintLeft_toLeftOf="parents"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image1" />
+
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/image2"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toRightOf="@id/image1"
+        app:layout_constraintRight_toLeftOf="@id/image3"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toRightOf="@id/image2"
+        app:layout_constraintRight_toLeftOf="@id/image4"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <ImageView
+        android:id="@+id/image4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toRightOf="@id/image3"
+        app:layout_constraintRight_toLeftOf="@id/image5"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <ImageView
+        android:id="@+id/image5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toRightOf="@id/image4"
+        app:layout_constraintRight_toLeftOf="@id/image6"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <ImageView
+        android:id="@+id/image6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_little_images"
+
+        app:layout_constraintTop_toBottomOf="@id/ex4_description"
+        app:layout_constraintLeft_toRightOf="@id/image5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/directions_icon"/>
+
+    <TextView
+        android:id="@+id/directions_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:text="@string/directions"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/ex4_icons_blue"
+        android:drawableTop="@drawable/ex4_directions"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/call_icon"
+        app:layout_constraintBottom_toTopOf="@id/line" />
+
+    <TextView
+        android:id="@+id/call_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/ex4_icons_blue"
+        android:drawableTop="@drawable/ex4_call"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintLeft_toRightOf="@id/directions_icon"
+        app:layout_constraintRight_toLeftOf="@id/save_icon"
+        app:layout_constraintBottom_toTopOf="@id/line"/>
+
+    <TextView
+        android:id="@+id/save_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/ex4_icons_blue"
+        android:drawableTop="@drawable/ex4_save"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintLeft_toRightOf="@id/call_icon"
+        app:layout_constraintRight_toLeftOf="@id/website_icon"
+        app:layout_constraintBottom_toTopOf="@id/line"/>
+
+    <TextView
+        android:id="@+id/website_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/website"
+        android:textSize="@dimen/ex4_textSizeMinor"
+        android:textColor="@color/ex4_icons_blue"
+        android:drawableTop="@drawable/ex4_website"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintLeft_toRightOf="@id/save_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/line"/>
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:background="@color/grey_for_exercise_4"
+        android:layout_height="1dp"
+
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/general_photo1"/>
+
+
+    <ImageView
+        android:id="@+id/general_photo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:background="@drawable/ex4_general_photo"
+
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/general_photo2"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/general_photo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_general_photo"
+
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toRightOf="@id/general_photo1"
+        app:layout_constraintRight_toLeftOf="@id/general_photo3"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/general_photo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ex4_general_photo"
+
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toRightOf="@id/general_photo2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
