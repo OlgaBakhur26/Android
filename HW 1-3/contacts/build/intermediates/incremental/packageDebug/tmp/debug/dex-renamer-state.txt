@@ -1,4 +1,0 @@
-#Fri Aug 07 22:53:04 MSK 2020
-base.0=E\:\\Android (Home work)\\HW 1-2\\contacts\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbarColor">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                app:queryHint="@string/search_contacts"
+                app:iconifiedByDefault="false"
+                android:layout_marginLeft="@dimen/toolbarMarginLeftRight"
+                android:layout_marginRight="@dimen/toolbarMarginLeftRight"
+                android:layout_marginTop="@dimen/toolbarMarginTopBottom"
+                android:layout_marginBottom="@dimen/toolbarMarginTopBottom"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/noContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_contacts"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/messageTextSize_contactList"
+            android:textColor="@color/messageTextColor_contactList"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingButton_addContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/floating_button_add_contact"
+        android:backgroundTint="@color/floatingActionButton_contactList"
+        app:fabSize="normal"
+        app:elevation="@dimen/elevation"
+        android:layout_margin="24dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
