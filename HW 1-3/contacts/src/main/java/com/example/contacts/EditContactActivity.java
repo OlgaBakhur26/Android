@@ -26,7 +26,6 @@ public class EditContactActivity extends AppCompatActivity {
 
     public static final String KEY_CHANGED_CONTACT = "Changed Contact";
     public static final String REMOVE_CONTACT = "Remove Contact";
-    public static final int REQUEST_CODE_EDIT_CONTACT = 222;
     public static final String KEY_CONTACT_FOR_EDITING = "CONTACT FOR EDITING";
 
     @Override

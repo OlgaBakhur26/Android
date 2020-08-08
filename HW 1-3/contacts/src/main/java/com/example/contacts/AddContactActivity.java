@@ -26,7 +26,6 @@ public class AddContactActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private Contact contact;
     public static final String KEY_NEW_CONTACT = "KEY_NEW_CONTACT";
-    public static final int REQUEST_CODE_ADD_CONTACT = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
