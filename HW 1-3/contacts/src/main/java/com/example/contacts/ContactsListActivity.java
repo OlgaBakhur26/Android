@@ -53,7 +53,6 @@ public class ContactsListActivity extends AppCompatActivity{
         contactsListRecycleView.setAdapter(new ContactsAdapter(contactsList, new ContactsAdapter.OnContactClickListener() {
             @Override
             public void onContactClick(Contact contact) {
-//                index = contactsList.indexOf(contact);
                 startEditContactActivity(contact);
             }
         }));
