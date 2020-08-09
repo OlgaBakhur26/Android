@@ -13,17 +13,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
-import static com.example.contacts.AddContactActivity.REQUEST_CODE_ADD_CONTACT;
 import static com.example.contacts.Contact.contactsList;
 import static com.example.contacts.EditContactActivity.KEY_CHANGED_CONTACT;
 import static com.example.contacts.EditContactActivity.REMOVE_CONTACT;
-import static com.example.contacts.EditContactActivity.REQUEST_CODE_EDIT_CONTACT;
-
 
 public class ContactsListActivity extends AppCompatActivity{
 
@@ -34,8 +32,11 @@ public class ContactsListActivity extends AppCompatActivity{
     private SearchView search;
 
     private Contact contact;
-    private volatile int index;
+    private String contactID;
     private boolean removeContact;
+
+    public static final int REQUEST_CODE_ADD_CONTACT = 111;
+    public static final int REQUEST_CODE_EDIT_CONTACT = 222;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class ContactsListActivity extends AppCompatActivity{
         contactsListRecycleView.setAdapter(new ContactsAdapter(contactsList, new ContactsAdapter.OnContactClickListener() {
             @Override
             public void onContactClick(Contact contact) {
-                index = contactsList.indexOf(contact);
+//                index = contactsList.indexOf(contact);
                 startEditContactActivity(contact);
             }
         }));
@@ -89,10 +90,19 @@ public class ContactsListActivity extends AppCompatActivity{
         if(requestCode == REQUEST_CODE_EDIT_CONTACT && resultCode == Activity.RESULT_OK && intent != null){
             contact = (Contact) intent.getExtras().getSerializable(KEY_CHANGED_CONTACT);
             removeContact = intent.getBooleanExtra(REMOVE_CONTACT, false);
-            if(removeContact == false){
-                changeContact(index, contact); // изменения не вносятся ни по одному индексу
-            }else if(removeContact == true){
-                removeContact(index); // приходит только последний элемент в листе. Только последний удаляется, в остальных случаях IndexOutOfBoundsException
+            contactID = contact.getId();
+            ContactsAdapter adapter = (ContactsAdapter) contactsListRecycleView.getAdapter();
+            if (adapter != null){
+                for (Contact item : adapter.items) {
+                    String itemID = item.getId();
+                    if(contactID.equals(itemID)){
+                        if(removeContact == false) {
+                            changeContact(item);
+                        }else if(removeContact == true){
+                            removeContact(item);
+                        }
+                    }
+                }
             }
         }
     }
@@ -106,20 +116,22 @@ public class ContactsListActivity extends AppCompatActivity{
         }
     }
 
-    private void changeContact(int index, Contact contact){
+    private void changeContact(Contact contact){
         ContactsAdapter adapter = (ContactsAdapter) contactsListRecycleView.getAdapter();
         if (adapter != null){
+            int index = adapter.items.indexOf(contact);
             adapter.items.set(index, contact);
-            adapter.notifyItemChanged(adapter.items.indexOf(contact));
+            adapter.notifyItemChanged(index);
             checkEmpty(adapter.items);
         }
     }
 
-    private void removeContact(int index){
+    private void removeContact(Contact contact){
         ContactsAdapter adapter = (ContactsAdapter) contactsListRecycleView.getAdapter();
         if (adapter != null){
+            int index = adapter.items.indexOf(contact);
             adapter.items.remove(index);
-            adapter.notifyItemChanged(adapter.items.indexOf(contact));
+            adapter.notifyItemChanged(index);
             checkEmpty(adapter.items);
         }
     }
