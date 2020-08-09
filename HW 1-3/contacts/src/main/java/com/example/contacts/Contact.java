@@ -12,7 +12,7 @@ public class Contact implements Serializable{
     private String personName;
     private String phone;
     private String email;
-    private UUID id;
+    private String id;
 
     public static List<Contact> contactsList = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class Contact implements Serializable{
         this.personName = personName;
         this.phone = phone;
         this.email = email;
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getPersonName() {
@@ -35,7 +35,7 @@ public class Contact implements Serializable{
         return email;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
@@ -61,7 +61,7 @@ public class Contact implements Serializable{
         private String personName;
         private String phone;
         private String email;
-        private UUID id;
+        private String id;
 
 
         public Builder setPersonName(String personName) {
@@ -79,7 +79,7 @@ public class Contact implements Serializable{
             return this;
         }
 
-        public Builder setId(UUID id) {
+        public Builder setId(String id) {
             this.id = id;
             return this;
         }
