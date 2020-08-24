@@ -1,3 +1,4 @@
+include ':customview'
 include ':contacts'
 include ':layouts'
 include ':app'
