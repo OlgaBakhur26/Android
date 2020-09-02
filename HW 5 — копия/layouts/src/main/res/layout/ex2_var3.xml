@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/photo_space"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/ex2_photoBackgroundColour"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+    <ImageButton
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ex2_camera"
+        android:layout_alignBottom="@id/photo_space"
+        android:layout_alignRight="@id/photo_space"/>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginLeft="@dimen/ex3_framePadding"
+        android:layout_marginRight="@dimen/ex3_framePadding"
+        android:layout_below="@id/photo_space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginLeft="@dimen/ex3_framePadding"
+        android:paddingRight="75dp"
+        android:layout_below="@id/title"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/location"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:drawableEnd="@drawable/ex2_location"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginRight="@dimen/ex3_framePadding"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/title"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/price"/>
+
+
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ex2_description"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginLeft="@dimen/ex3_framePadding"
+        android:layout_marginRight="@dimen/ex3_framePadding"
+        android:layout_below="@id/price"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+    <EditText
+        android:id="@+id/inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/inventory"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:paddingRight="45dp"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginLeft="@dimen/ex3_framePadding"
+        android:layout_below="@id/description"
+        android:layout_alignParentLeft="true" />
+
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/weight"
+        android:gravity="left"
+        android:textSize="@dimen/ex2_textSize"
+        android:paddingRight="60dp"
+        android:layout_marginTop="@dimen/ex2_TopMargin"
+        android:layout_marginRight="@dimen/ex3_framePadding"
+        android:layout_marginLeft="130dp"
+
+        android:layout_below="@id/description"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/inventory" />
+</RelativeLayout>

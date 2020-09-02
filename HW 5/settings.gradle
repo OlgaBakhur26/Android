@@ -1,0 +1,5 @@
+include ':customview'
+include ':contacts'
+include ':layouts'
+include ':app'
+rootProject.name = "Flags"
