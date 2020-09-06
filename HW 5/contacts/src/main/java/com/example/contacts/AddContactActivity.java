@@ -63,7 +63,7 @@ public class AddContactActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    View.OnClickListener radioButtonListener = new View.OnClickListener() {
+    private View.OnClickListener radioButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch (view.getId()){

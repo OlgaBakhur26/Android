@@ -149,7 +149,6 @@ public class ContactListActivity extends AppCompatActivity {
         }
     }
 
-
     // ADAPTER
     private static class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
         public interface OnContactClickListener {
