@@ -6,16 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlin_sql.CONTACT_TYPE.EMAIL
+import com.example.kotlin_sql.CONTACT_TYPE.PHONE
 import com.example.kotlin_sql.database.AppDatabase
 import com.example.kotlin_sql.database.Contact
 import com.example.kotlin_sql.database.ContactDao
 import kotlinx.android.synthetic.main.contact_list.*
 import kotlinx.android.synthetic.main.item_contact.*
-import com.example.kotlin_sql.CONTACT_TYPE.PHONE
-import com.example.kotlin_sql.CONTACT_TYPE.EMAIL
 
 const val CONTACT_FOR_EDITING: String = "CONTACT_FOR_EDITING"
 
@@ -24,7 +23,7 @@ class ContactListActivity : AppCompatActivity() {
     private var appDatabase: AppDatabase? = null
     private var contactDao: ContactDao? = null
 
-    private var contactsList: LiveData<List<Contact>>? = null
+    private var contactsList: List<Contact>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +59,8 @@ class ContactListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun checkEmpty(items: LiveData<List<Contact>>?) {
-        if (items.isEmpty()) {
+    private fun checkEmpty(items: List<Contact>?) {
+        if (items!!.isEmpty()) {
             recycleView.visibility = View.GONE
             noContacts.visibility = View.VISIBLE
         } else {
@@ -70,12 +69,19 @@ class ContactListActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        contactsList = contactDao?.getAll()
+        val adapter: ContactsAdapter = recycleView.adapter as ContactsAdapter
+        adapter.notifyDataSetChanged()
+        checkEmpty(adapter.items)
+    }
 
     // ADAPTER
-    inner class ContactsAdapter (contactsList: LiveData<List<Contact>>?, param: OnContactClickListener)
+    inner class ContactsAdapter(contactsList: List<Contact>?, param: OnContactClickListener)
         : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
 
-        private var items = ArrayList<Contact>()
+        var items = ArrayList<Contact>()
         private val contactListener: OnContactClickListener? = null
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
