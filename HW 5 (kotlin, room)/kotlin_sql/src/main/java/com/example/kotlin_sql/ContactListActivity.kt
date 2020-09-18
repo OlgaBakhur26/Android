@@ -16,7 +16,7 @@ import com.example.kotlin_sql.database.ContactDao
 import kotlinx.android.synthetic.main.contact_list.*
 import kotlinx.android.synthetic.main.item_contact.*
 
-const val CONTACT_FOR_EDITING: String = "CONTACT_FOR_EDITING"
+private const val CONTACT_FOR_EDITING: String = "CONTACT_FOR_EDITING"
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -81,7 +81,7 @@ class ContactListActivity : AppCompatActivity() {
     inner class ContactsAdapter(contactsList: List<Contact>?, param: OnContactClickListener)
         : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
 
-        var items = ArrayList<Contact>()
+        internal var items = ArrayList<Contact>()
         private val contactListener: OnContactClickListener? = null
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {

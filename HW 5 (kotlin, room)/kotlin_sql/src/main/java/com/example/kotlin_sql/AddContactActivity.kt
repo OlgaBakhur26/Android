@@ -1,10 +1,10 @@
 package com.example.kotlin_sql
 
 import android.os.Bundle
-import android.text.InputType
+import android.text.InputType.TYPE_CLASS_PHONE
+import android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_sql.CONTACT_TYPE.EMAIL
 import com.example.kotlin_sql.CONTACT_TYPE.PHONE
@@ -16,22 +16,19 @@ import kotlinx.android.synthetic.main.add_contact.*
 
 class AddContactActivity : AppCompatActivity() {
 
-    private var appDatabase: AppDatabase? = null
-    private var contactDao: ContactDao? = null
-
-    private var actionBar: ActionBar? = null
-    private var contact: Contact? = null
+    private lateinit var contactDao: ContactDao
+    private lateinit var contact: Contact
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_contact)
 
         setSupportActionBar(toolbarAddActivity)
-        actionBar = supportActionBar
+        val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        appDatabase = AppDatabase.getAppDatabaseInstance(this)
-        contactDao = appDatabase?.getContactDao()
+        val appDatabase = AppDatabase.getAppDatabaseInstance(this)
+        contactDao = appDatabase.getContactDao()
 
         radioPhone.setOnClickListener(radioButtonListener)
         radioEmail.setOnClickListener(radioButtonListener)
@@ -50,7 +47,7 @@ class AddContactActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private var radioButtonListener = View.OnClickListener { view ->
+    private val radioButtonListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.radioPhone -> adjustPhoneField()
             R.id.radioEmail -> adjustEmailField()
@@ -58,13 +55,17 @@ class AddContactActivity : AppCompatActivity() {
     }
 
     private fun adjustPhoneField() {
-        personContactField.hint = "Phone number"
-        personContactField.inputType = InputType.TYPE_CLASS_PHONE
+        personContactField.apply {
+            hint = "Phone number"
+            inputType = TYPE_CLASS_PHONE
+        }
     }
 
     private fun adjustEmailField() {
-        personContactField.hint = "Email"
-        personContactField.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        personContactField.apply {
+            hint = "Email"
+            inputType = TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        }
     }
 
     private val thread = Thread(Runnable {
@@ -78,7 +79,7 @@ class AddContactActivity : AppCompatActivity() {
                     contactType = EMAIL,
                     contactDetails = personContactField.text.toString())
         }
-        contactDao?.insert(contact!!)
+        contactDao.insert(contact)
     })
 }
 
