@@ -1,0 +1,22 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyTitleTextStyle">
+        <item name="android:textColor">@color/colorChoiceTitle</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/titleTextSize</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MyTitleTextStyle.GeneralTextStyle">
+        <item name="android:textSize">@dimen/generalTextSize</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+</resources>
