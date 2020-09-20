@@ -30,6 +30,7 @@ class MyService : Service() {
     private var primaryExternalStorage: File? = null
 
     private var generalizedFile: File? = null
+    private lateinit var thread: Thread
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -43,13 +44,17 @@ class MyService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         stopForeground(true)
+        if (thread.isAlive){
+            thread.interrupt() // не могу проверить, какая ошибка здесь падает, потому что
+            // приложение не запускается из-за Unresolved reference: StorageManager
+        }
     }
 
     // По моей могике весь метод должен быть синхронизирован, во-первых, для того, чтобы 2 потока
     // одновременно не писали в 1 файл, во-вторых, чтобы поток не считывал преференс, который уже
     // может быть не актуален на момент записи в файл. Это правильно?
     @Synchronized private fun recordAction(date: String, action: String, startId: Int){
-        Thread(Runnable {
+        thread = Thread(Runnable {
             createServiceNotification(baseContext)
             val content = "$date - $action \n"
             val storageManager = getStorageManager(applicationContext)
@@ -106,7 +111,8 @@ class MyService : Service() {
             }
 
             stopSelf(startId)
-        }).start()
+        })
+        thread.start()
     }
 
     private fun createServiceNotification(context: Context){
