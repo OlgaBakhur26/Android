@@ -1,4 +1,4 @@
-package com.example.kotlin_sql
+package com.example.kotlin_sql.database
 
 enum class CONTACT_TYPE {
     PHONE,

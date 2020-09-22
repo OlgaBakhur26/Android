@@ -8,22 +8,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlin_sql.CONTACT_TYPE.EMAIL
-import com.example.kotlin_sql.CONTACT_TYPE.PHONE
+import com.example.kotlin_sql.database.CONTACT_TYPE.EMAIL
+import com.example.kotlin_sql.database.CONTACT_TYPE.PHONE
 import com.example.kotlin_sql.database.AppDatabase
 import com.example.kotlin_sql.database.Contact
 import com.example.kotlin_sql.database.ContactDao
 import kotlinx.android.synthetic.main.contact_list.*
-import kotlinx.android.synthetic.main.item_contact.*
+import kotlinx.android.synthetic.main.item_contact.view.*
 
-private const val CONTACT_FOR_EDITING: String = "CONTACT_FOR_EDITING"
+internal const val CONTACT_FOR_EDITING: String = "CONTACT_FOR_EDITING"
 
 class ContactListActivity : AppCompatActivity() {
 
-    private var appDatabase: AppDatabase? = null
-    private var contactDao: ContactDao? = null
-
-    private var contactsList: List<Contact>? = null
+    private lateinit var contactDao: ContactDao
+    private lateinit var contactsList: List<Contact>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,19 +29,16 @@ class ContactListActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbarMain)
 
-        appDatabase = AppDatabase.getAppDatabaseInstance(this)
-        contactDao = appDatabase?.getContactDao()
-        contactsList = contactDao?.getAll()
+        val appDatabase = AppDatabase.getAppDatabaseInstance(this)
+        contactDao = appDatabase.getContactDao()
+        contactsList = contactDao.getAll()
 
         recycleView.adapter = ContactsAdapter(contactsList, object : OnContactClickListener {
             override fun onContactClick(contact: Contact) {
                 startEditContactActivity(contact)
             }
         })
-
         recycleView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-
-        checkEmpty(contactsList)
 
         floatingButton.setOnClickListener { startAddContactActivity() }
     }
@@ -59,30 +54,34 @@ class ContactListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun checkEmpty(items: List<Contact>?) {
-        if (items!!.isEmpty()) {
+    private fun checkEmpty(list: List<Contact>) {
+        if (list.isEmpty()) {
             recycleView.visibility = View.GONE
             noContacts.visibility = View.VISIBLE
         } else {
-            recycleView?.visibility = View.VISIBLE
-            noContacts?.visibility = View.GONE
+            recycleView.visibility = View.VISIBLE
+            noContacts.visibility = View.GONE
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        contactsList = contactDao?.getAll()
-        val adapter: ContactsAdapter = recycleView.adapter as ContactsAdapter
-        adapter.notifyDataSetChanged()
-        checkEmpty(adapter.items)
+    private fun loadContactList() {
+        val adapter = recycleView.adapter as? ContactsAdapter
+        adapter?.items = contactDao.getAll()
+        adapter?.notifyDataSetChanged()
+        adapter?.items?.let { checkEmpty(it) }
+    }
+
+    override fun onStart() {
+        super.onStart()
+       loadContactList()
     }
 
     // ADAPTER
-    inner class ContactsAdapter(contactsList: List<Contact>?, param: OnContactClickListener)
+    class ContactsAdapter(
+            internal var items: List<Contact>,
+            private val contactListener: OnContactClickListener
+    )
         : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
-
-        internal var items = ArrayList<Contact>()
-        private val contactListener: OnContactClickListener? = null
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
             val view = LayoutInflater
@@ -92,9 +91,7 @@ class ContactListActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ContactsViewHolder, position: Int) {
-            if (contactListener != null) {
-                holder.bind(items[position], contactListener)
-            }
+            holder.bind(items[position], contactListener)
         }
 
         override fun getItemCount(): Int {
@@ -102,14 +99,14 @@ class ContactListActivity : AppCompatActivity() {
         }
 
         // VIEWHOLDER
-        inner class ContactsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class ContactsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(contact: Contact, contactListener: OnContactClickListener) {
-                itemPersonName.text = contact.personName
-                itemPersonContact.text = contact.contactDetails
+            internal fun bind(contact: Contact, contactListener: OnContactClickListener) {
+                itemView.itemPersonName.text = contact.personName
+                itemView.itemPersonContact.text = contact.contactDetails
                 when (contact.contactType) {
-                    PHONE -> itemIcon.setImageResource(R.drawable.contact_phone)
-                    EMAIL -> itemIcon.setImageResource(R.drawable.contact_email)
+                    PHONE -> itemView.itemIcon.setImageResource(R.drawable.contact_phone)
+                    EMAIL -> itemView.itemIcon.setImageResource(R.drawable.contact_email)
                 }
                 itemView.setOnClickListener { contactListener.onContactClick(contact) }
             }

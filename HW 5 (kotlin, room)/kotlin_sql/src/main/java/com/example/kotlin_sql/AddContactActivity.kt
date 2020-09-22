@@ -6,13 +6,12 @@ import android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kotlin_sql.CONTACT_TYPE.EMAIL
-import com.example.kotlin_sql.CONTACT_TYPE.PHONE
+import com.example.kotlin_sql.database.CONTACT_TYPE.EMAIL
+import com.example.kotlin_sql.database.CONTACT_TYPE.PHONE
 import com.example.kotlin_sql.database.AppDatabase
 import com.example.kotlin_sql.database.Contact
 import com.example.kotlin_sql.database.ContactDao
 import kotlinx.android.synthetic.main.add_contact.*
-
 
 class AddContactActivity : AppCompatActivity() {
 
@@ -34,9 +33,7 @@ class AddContactActivity : AppCompatActivity() {
         radioEmail.setOnClickListener(radioButtonListener)
         saveButton.setOnClickListener(View.OnClickListener {
             thread.start()
-            if (!thread.isAlive){
-                finish()
-            }
+            finish()
         })
     }
 
@@ -69,6 +66,9 @@ class AddContactActivity : AppCompatActivity() {
     }
 
     private val thread = Thread(Runnable {
+        // contact = when {...} - when с возвращаемым типом сделать не получится, т.к. тогда нужна
+        // еще и ветка else, которой ничего кроме null не присвоишь. Null я присвоить контакту не могу,
+        // поскольку в свойствах класса он определен с lateinit.
         when {
             radioPhone.isChecked -> contact = Contact(
                     personName = personNameField.text.toString(),
