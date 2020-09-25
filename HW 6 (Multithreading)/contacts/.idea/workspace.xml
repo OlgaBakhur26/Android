@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9a573801-a070-435a-9efb-c33f72d08688" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/render.experimental.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/render.experimental.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/androidTest/java/com/example/flags/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/androidTest/java/com/example/flags/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/java/com/example/flags/FlagActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/flags/FlagActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/drawable-de-rDE/flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-de-rDE/flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/drawable-es-rES/flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-es-rES/flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/drawable-hi-rIN/flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-hi-rIN/flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/drawable-nl-rNL/flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-nl-rNL/flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/drawable/flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/layout/activity_flag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_flag.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/mipmap-hdpi/icon_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/icon_flag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/mipmap-mdpi/icon_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/icon_flag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/mipmap-xhdpi/icon_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/icon_flag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/mipmap-xxhdpi/icon_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/icon_flag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/mipmap-xxxhdpi/icon_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/icon_flag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-de-rDE-land/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-de-rDE-land/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-de-rDE/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-de-rDE/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-es-rES-land/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-es-rES-land/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-es-rES/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-es-rES/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-hi-rIN-land/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-hi-rIN-land/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-hi-rIN/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-hi-rIN/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-land/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-land/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-nl-rNL-land/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-nl-rNL-land/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values-nl-rNL/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-nl-rNL/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/app/src/test/java/com/example/flags/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/test/java/com/example/flags/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/androidTest/java/com/example/contacts/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/androidTest/java/com/example/contacts/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/java/com/example/contacts/AddContactActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts/AddContactActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/java/com/example/contacts/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/java/com/example/contacts/ContactListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts/ContactListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/java/com/example/contacts/EditContactActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts/EditContactActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/contact_email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/contact_email.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/contact_phone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/contact_phone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/floating_button_add_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/floating_button_add_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/home_add_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/home_add_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/remove_button_edit_contact_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/remove_button_edit_contact_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/drawable/save_add_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/save_add_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/layout/add_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/add_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/layout/contacts_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/contacts_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/layout/edit_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/edit_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/layout/item_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/item_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/contacts/src/test/java/com/example/contacts/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/contacts/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/androidTest/java/com/example/customview/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/androidTest/java/com/example/customview/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/java/com/example/customview/CustomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/java/com/example/customview/CustomView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/java/com/example/customview/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/java/com/example/customview/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/java/com/example/customview/NotificationTypeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/java/com/example/customview/NotificationTypeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/drawable/save_notification_type.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/drawable/save_notification_type.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/layout/activity_notification_type.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/layout/activity_notification_type.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/menu/activity_main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/menu/activity_main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/values/attrs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/customview/src/test/java/com/example/customview/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../customview/src/test/java/com/example/customview/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/androidTest/java/com/example/layouts/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/androidTest/java/com/example/layouts/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/java/com/example/layouts/LayoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/java/com/example/layouts/LayoutActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_attractions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_attractions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_dining.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_dining.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_education.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_education.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_family.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_family.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_health.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_health.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_office.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_office.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_promotions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_promotions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_radio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_radio.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_recipes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_recipes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex1_sports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex1_sports.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex2_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex2_camera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex2_location.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex2_location.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex3_email_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex3_email_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex3_sign_in_button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex3_sign_in_button.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_call.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_call.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_directions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_directions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_general_photo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_general_photo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_little_images.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_little_images.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_save.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_save.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_user_photo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_user_photo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex4_website.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex4_website.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex5_bookmark.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex5_bookmark.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex5_certificated_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex5_certificated_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex5_favorite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex5_favorite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex5_layouts_views_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex5_layouts_views_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ex5_share.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ex5_share.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex1_var1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex1_var1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex1_var2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex1_var2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex2_var1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex2_var1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex2_var2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex2_var2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex2_var3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex2_var3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex3_var1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex3_var1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex3_var2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex3_var2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex3_var3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex3_var3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex4_var1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex4_var1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex4_var2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex4_var2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex4_var3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex4_var3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex5_var1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex5_var1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/layout/ex5_var2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/layout/ex5_var2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/layouts/src/test/java/com/example/layouts/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../layouts/src/test/java/com/example/layouts/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HW 5/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_25" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\Android (Home work)\HW 4\contacts\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1h02vovxpiLtCT9K2gYatbCN6S5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="memory.settings" />
+  </component>
+  <component name="RunManager" selected="Android App.layouts">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="contacts" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="contacts" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="customview" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="customview" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="layouts" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="layouts" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a573801-a070-435a-9efb-c33f72d08688" name="Default Changelist" comment="" />
+      <created>1599133921244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599133921244</updated>
+    </task>
+    <servers />
+  </component>
+</project>

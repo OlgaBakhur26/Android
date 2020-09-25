@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Flags.iml" filepath="$PROJECT_DIR$/.idea/modules/Flags.iml" group="Flags" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Flags/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/broadcastreceiver_service/broadcastreceiver_service.iml" filepath="$PROJECT_DIR$/.idea/modules/broadcastreceiver_service/broadcastreceiver_service.iml" group="Flags/broadcastreceiver_service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/contacts/contacts.iml" filepath="$PROJECT_DIR$/.idea/modules/contacts/contacts.iml" group="Flags/contacts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customview/customview.iml" filepath="$PROJECT_DIR$/.idea/modules/customview/customview.iml" group="Flags/customview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlin_room/kotlin_room.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlin_room/kotlin_room.iml" group="Flags/kotlin_room" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts/layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts/layouts.iml" group="Flags/layouts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multithreading/multithreading.iml" filepath="$PROJECT_DIR$/.idea/modules/multithreading/multithreading.iml" group="Flags/multithreading" />
+    </modules>
+  </component>
+</project>

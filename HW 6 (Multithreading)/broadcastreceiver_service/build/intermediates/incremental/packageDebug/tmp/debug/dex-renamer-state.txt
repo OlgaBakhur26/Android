@@ -1,0 +1,7 @@
+#Fri Sep 25 13:34:54 MSK 2020
+base.1=E\:\\Android (Home work)\\HW 6 (Multithreading)\\broadcastreceiver_service\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+path.1=classes.dex
+base.0=E\:\\Android (Home work)\\HW 6 (Multithreading)\\broadcastreceiver_service\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

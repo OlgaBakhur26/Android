@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\Android (Home work)\\HW 6 (Multithreading)\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rES-land\\values-es-rES-land.xml",
+            "map": [
+                {
+                    "source": "E:\\Android (Home work)\\HW 6 (Multithreading)\\app\\src\\main\\res\\values-es-rES-land\\strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "52",
+                        "endOffsets": "103"
+                    }
+                }
+            ]
+        }
+    ]
+}
