@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         storageManager = getStorageManager(this@MainActivity)
-        storageType = STORAGE_TYPE.valueOf(storageManager.loadStorageType())
+        setStorageType()
 
         registerReceiver()
         rememberStorageType()
@@ -44,6 +44,14 @@ class MainActivity : AppCompatActivity() {
         when{
             radioInternalStorage.isChecked -> storageManager.saveStorageType(INTERNAL)
             radioExternalStorage.isChecked -> storageManager.saveStorageType(EXTERNAL)
+        }
+    }
+
+    private fun setStorageType(){
+        storageType = STORAGE_TYPE.valueOf(storageManager.loadStorageType())
+        when(storageType){
+            INTERNAL -> radioGroup.check(R.id.radioInternalStorage)
+            EXTERNAL -> radioGroup.check(R.id.radioExternalStorage)
         }
     }
 }

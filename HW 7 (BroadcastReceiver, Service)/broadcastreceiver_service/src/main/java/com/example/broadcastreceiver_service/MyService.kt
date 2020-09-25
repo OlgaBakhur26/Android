@@ -7,13 +7,13 @@ import android.os.Environment
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import com.example.broadcastreceiver_service.STORAGE_TYPE.EXTERNAL
+import com.example.broadcastreceiver_service.STORAGE_TYPE.INTERNAL
+import com.example.broadcastreceiver_service.StorageManager.getStorageManager
 import java.io.File
 import java.io.FileWriter
 import java.io.IOException
 import java.util.concurrent.TimeUnit
-import com.example.broadcastreceiver_service.STORAGE_TYPE.INTERNAL
-import com.example.broadcastreceiver_service.STORAGE_TYPE.EXTERNAL
-import com.example.broadcastreceiver_service.StorageManager.getStorageManager
 
 private const val SERVICE_NOTIFICATION_ID = 1
 private const val EXCEPTION_NOTIFICATION_ID = 2

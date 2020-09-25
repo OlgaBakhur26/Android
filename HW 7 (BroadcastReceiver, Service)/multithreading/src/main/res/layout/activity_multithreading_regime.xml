@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/framePadding_MultithreadingRegimeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/multithreadingRegime"
+        android:layout_marginBottom="@dimen/widgetMargin_MultithreadingRegimeActivity"
+        style="@style/MultithreadingRegimeActivity_titleTextStyle"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/executorHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/executorHandler"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+        <RadioButton
+            android:id="@+id/executorFuture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/executorFuture"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+        <RadioButton
+            android:id="@+id/rxJava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rxJava"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+
+
+    </RadioGroup>
+
+</LinearLayout>

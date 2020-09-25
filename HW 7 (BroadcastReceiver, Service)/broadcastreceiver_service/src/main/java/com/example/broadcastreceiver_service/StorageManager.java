@@ -4,11 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class StorageManager {
-    // 1. Этот класс не общается с остальным приложением. Ошибка возникает даже при его
-    // упоминании в импортах в другихх классах.
-    // Ошибка: MainActivity.kt: (15, 42): Unresolved reference: StorageManager и MyService.kt: (55, 34): Unresolved reference: getStorageManager
-
-    // 2. И я не уверена, что правильно написала Singleton
 
     private static final String SETTINGS_FILE_NAME = "StoragePreferences";
     private static final String KEY_PREFERENCE_STORAGE_TYPE = "KEY_PREFERENCE_STORAGE_TYPE";
@@ -21,9 +16,8 @@ public class StorageManager {
     }
 
     public static StorageManager getStorageManager(Context context) {
-        preferences = context.getSharedPreferences(SETTINGS_FILE_NAME, Context.MODE_PRIVATE);
         if (storageManager == null) {
-            storageManager = new StorageManager(context.getApplicationContext());
+            storageManager = new StorageManager(context);
         }
         return storageManager;
     }
