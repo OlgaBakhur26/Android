@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="icon_contactPhoneColor_contactList">#DD3F51B5</color>
+    <color name="icon_contactEmailColor_contactList">#9C27B0</color>
+    <color name="floatingActionButton_contactList">#E91E63</color>
+    <color name="messageTextColor_contactList">#72000000</color>
+    <color name="nameTextColor_itemContact">#000000</color>
+    <color name="contactTextColor_itemContact">#72000000</color>
+    <color name="mainTextColor_addContact">#000000</color>
+    <color name="hintContactTextColor_addContact">#72000000</color>
+    <color name="nameContactTextColor_editContact">#000000</color>
+    <color name="removeButtonColor_editContact">#F44336</color>
+    <color name="removeButtonTextColor_editContact">#FFFFFF</color>
+    <color name="toolbarColor">#1536ED</color>
+</resources>

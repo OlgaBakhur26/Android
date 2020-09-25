@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/ex3_framePadding">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+        android:text="@string/sign_in_lower"
+        android:textColor="@color/black_for_exercise_3"
+        android:textSize="@dimen/ex3_textSizeMajor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/email" />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/ex3_email_password"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+        android:hint="@string/email"
+        android:paddingLeft="20dp"
+        android:textSize="@dimen/ex3_textSizeMajor"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        android:background="@drawable/ex3_email_password"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+        android:hint="@string/password"
+        android:paddingLeft="20dp"
+        android:textSize="@dimen/ex3_textSizeMajor"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/remember" />
+
+    <CheckBox
+        android:id="@+id/remember"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintVertical_weight="1"
+        android:checked="true"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+        android:text="@string/remember"
+        android:textColor="@color/black_for_exercise_3"
+        android:textSize="@dimen/ex3_textSizeMinor"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/forgot_password"
+        app:layout_constraintBottom_toTopOf="@+id/first_space" />
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="left|center_vertical"
+        android:text="@string/forgot_password"
+        android:textColor="@color/black_for_exercise_3"
+        android:textSize="@dimen/ex3_textSizeMinor"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintLeft_toRightOf="@+id/remember"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/first_space" />
+
+
+    <Space
+        android:id="@+id/first_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/remember"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sign_in_button" />
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        android:background="@drawable/ex3_sign_in_button"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/sign_in_upper"
+        android:textAllCaps="false"
+        android:textColor="@color/white_for_exercise_2"
+        android:textSize="@dimen/ex3_textSizeMajor"
+        app:layout_constraintTop_toBottomOf="@+id/first_space"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/second_space" />
+
+    <Space
+        android:id="@+id/second_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/footnote" />
+
+    <TextView
+        android:id="@+id/footnote"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/just_sign_in"
+        android:textColor="@color/grey_for_exercise_3"
+        android:textSize="@dimen/ex3_textSizeMinor"
+        app:layout_constraintTop_toBottomOf="@+id/second_space"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

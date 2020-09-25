@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMultithreadingRegime"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbarColor">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/multithreadingRegime"
+            android:gravity="left|center_vertical"
+            android:textSize="@dimen/toolbarTextSize"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@android:color/white"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/framePadding_MultithreadingRegimeActivity">
+
+        <RadioButton
+            android:id="@+id/executorHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/executorHandler"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+        <RadioButton
+            android:id="@+id/executorFuture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/executorFuture"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+        <RadioButton
+            android:id="@+id/rxJava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rxJava"
+            style="@style/MultithreadingRegimeActivity_generalTextStyle"/>
+
+
+
+    </RadioGroup>
+
+</LinearLayout>
