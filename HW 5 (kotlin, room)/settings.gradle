@@ -1,0 +1,6 @@
+include ':kotlin_sql'
+include ':customview'
+include ':contacts'
+include ':layouts'
+include ':app'
+rootProject.name = "Flags"
