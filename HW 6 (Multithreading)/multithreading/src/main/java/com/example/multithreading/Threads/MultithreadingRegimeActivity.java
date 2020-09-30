@@ -1,12 +1,12 @@
 package com.example.multithreading.Threads;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.RadioButton;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.multithreading.R;
 
@@ -37,9 +37,9 @@ public class MultithreadingRegimeActivity extends AppCompatActivity {
         getMultithreadingRegime();
     }
 
-    private void getMultithreadingRegime(){
+    private void getMultithreadingRegime() {
         int regimeId = regimeManager.loadMultithreadingRegime();
-        switch (regimeId){
+        switch (regimeId) {
             case R.id.executorHandler:
                 executorHandler.setChecked(true);
                 break;
@@ -55,11 +55,11 @@ public class MultithreadingRegimeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            if(executorHandler.isChecked()){
+            if (executorHandler.isChecked()) {
                 regimeManager.saveMultithreadingRegime(executorHandler.getId());
-            }else if(executorFuture.isChecked()){
+            } else if (executorFuture.isChecked()) {
                 regimeManager.saveMultithreadingRegime(executorFuture.getId());
-            }else if(rxJava.isChecked()){
+            } else if (rxJava.isChecked()) {
                 regimeManager.saveMultithreadingRegime(rxJava.getId());
             }
             finish();

@@ -2,7 +2,6 @@ package com.example.multithreading;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,17 +11,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.multithreading.Threads.DatabaseMethods;
-import com.example.multithreading.Threads.Executor_CompletableFuture;
-import com.example.multithreading.Threads.Executor_Handler;
+import com.example.multithreading.Threads.DataRepository;
+import com.example.multithreading.Threads.FutureRepository;
+import com.example.multithreading.Threads.HandlerRepository;
 import com.example.multithreading.Threads.MultithreadingRegimeManager;
-import com.example.multithreading.Threads.RXJava;
+import com.example.multithreading.Threads.RXJavaRepository;
+import com.example.multithreading.Threads.RepositoryListener;
 import com.example.multithreading.database.AppDatabase;
 import com.example.multithreading.database.Contact;
 import com.example.multithreading.database.ContactDao;
 
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import static com.example.multithreading.ContactListActivity.CONTACT_FOR_EDITING;
 
@@ -36,7 +37,7 @@ public class EditContactActivity extends AppCompatActivity {
     private ContactDao contactDao;
     private Contact contactToEdit;
 
-    private DatabaseMethods databaseMethods;
+    private DataRepository dataRepository;
     private MultithreadingRegimeManager regimeManager;
 
     @Override
@@ -65,7 +66,7 @@ public class EditContactActivity extends AppCompatActivity {
         removeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseMethods.removeContact(runnableDelete);
+                dataRepository.removeContact(contactToEdit);
                 finish();
             }
         });
@@ -77,63 +78,50 @@ public class EditContactActivity extends AppCompatActivity {
     }
 
     private void setFields() {
-        databaseMethods.getById(supplierGetById, consumerGetById);
+        dataRepository.getById(contactID, new RepositoryListener<Contact>() {
+            @Override
+            public void onDataReceived(Contact contact) {
+                contactToEdit = contact;
+                nameField.setText(contactToEdit.getPersonName());
+                contactField.setText(contactToEdit.getContactDetails());
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            databaseMethods.editContact(runnableEdit);
+            editCurrentContact(contactToEdit);
             finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void getMultithreadingRegime(){
+    private void getMultithreadingRegime() {
         int regimeId = regimeManager.loadMultithreadingRegime();
-        switch (regimeId){
+        switch (regimeId) {
             case R.id.executorHandler:
-                databaseMethods = new Executor_Handler();
+                dataRepository = new HandlerRepository(contactDao, (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.executorFuture:
-                databaseMethods = new Executor_CompletableFuture();
+                dataRepository = new FutureRepository(contactDao, (Executor) getMainExecutor(),
+                        (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.rxJava:
-                databaseMethods = new RXJava();
+                dataRepository = new RXJavaRepository(contactDao);
                 break;
         }
     }
 
-    private Supplier<Contact> supplierGetById = new Supplier<Contact>() {
-        @Override
-        public Contact get() {
-            return contactDao.getById(contactID);
-        }
-    };
+    private void editCurrentContact(Contact contact) {
+        contact.setPersonName(nameField.getText().toString());
+        contact.setContactDetails(contactField.getText().toString());
+        dataRepository.editContact(contact);
+    }
 
-    private Consumer<Contact> consumerGetById = new Consumer<Contact>() {
-        @Override
-        public void accept(Contact contact) {
-            contactToEdit = contact;
-
-            nameField.setText(contactToEdit.getPersonName());
-            contactField.setText(contactToEdit.getContactDetails());
-        }
-    };
-
-    private Runnable runnableDelete = new Runnable() {
-        @Override
-        public void run() {
-            contactDao.delete(contactToEdit);
-        }
-    };
-
-    private Runnable runnableEdit = new Runnable() {
-        @Override
-        public void run() {
-            contactToEdit.setPersonName(nameField.getText().toString());
-            contactToEdit.setContactDetails(contactField.getText().toString());
-            contactDao.update(contactToEdit);
-        }
-    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dataRepository.close();
+    }
 }

@@ -17,12 +17,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.multithreading.Threads.DatabaseMethods;
-import com.example.multithreading.Threads.Executor_CompletableFuture;
-import com.example.multithreading.Threads.Executor_Handler;
+import com.example.multithreading.Threads.DataRepository;
+import com.example.multithreading.Threads.FutureRepository;
+import com.example.multithreading.Threads.HandlerRepository;
 import com.example.multithreading.Threads.MultithreadingRegimeActivity;
 import com.example.multithreading.Threads.MultithreadingRegimeManager;
-import com.example.multithreading.Threads.RXJava;
+import com.example.multithreading.Threads.RXJavaRepository;
+import com.example.multithreading.Threads.RepositoryListener;
 import com.example.multithreading.database.AppDatabase;
 import com.example.multithreading.database.Contact;
 import com.example.multithreading.database.ContactDao;
@@ -30,8 +31,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class ContactListActivity extends AppCompatActivity {
 
@@ -42,18 +44,13 @@ public class ContactListActivity extends AppCompatActivity {
     private List<Contact> contactsList = new ArrayList<>();
 
     private ContactDao contactDao;
-    private DatabaseMethods databaseMethods;
+    private DataRepository dataRepository;
     private MultithreadingRegimeManager regimeManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts_list);
-
-        AppDatabase appDatabase = AppDatabase.getAppDatabaseInstance(this);
-        contactDao = appDatabase.getContactDao();
-        regimeManager = MultithreadingRegimeManager.getRegimeManager(ContactListActivity.this);
-        getMultithreadingRegime();
 
         contactsListRecycleView = findViewById(R.id.recycleView);
         noContacts = findViewById(R.id.noContacts);
@@ -67,6 +64,11 @@ public class ContactListActivity extends AppCompatActivity {
                 startAddContactActivity();
             }
         });
+
+        AppDatabase appDatabase = AppDatabase.getAppDatabaseInstance(this);
+        contactDao = appDatabase.getContactDao();
+        regimeManager = MultithreadingRegimeManager.getRegimeManager(ContactListActivity.this);
+        getMultithreadingRegime();
 
         contactsListRecycleView.setAdapter(new ContactsAdapter(contactsList, new ContactsAdapter.OnContactClickListener() {
             @Override
@@ -112,31 +114,21 @@ public class ContactListActivity extends AppCompatActivity {
     }
 
     private void loadContactList() {
-        if (adapter != null) {
-            databaseMethods.getAll(supplierGetAll, consumerGetAll);
-            adapter.notifyDataSetChanged();
-        }
+        dataRepository.getAll(new RepositoryListener<List<Contact>>() {
+            @Override
+            public void onDataReceived(List<Contact> contactList) {
+                if (adapter != null) {
+                    adapter.items = contactList;
+                    adapter.notifyDataSetChanged();
+                    checkEmpty(adapter.items);
+                }
+            }
+        });
+
     }
 
-    private Supplier<List<Contact>> supplierGetAll = new Supplier<List<Contact>>() {
-        @Override
-        public List<Contact> get() {
-            return contactDao.getAll();
-        }
-    };
-
-    private Consumer<List<Contact>> consumerGetAll = new Consumer<List<Contact>>() {
-        @Override
-        public void accept(List<Contact> list) {
-            if (adapter != null) {
-                adapter.items = list;
-                checkEmpty(adapter.items);
-            }
-        }
-    };
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) { // надо поправить стиль меню. Поверх searchView
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.contact_list_activity_menu, menu);
         return true;
     }
@@ -144,7 +136,7 @@ public class ContactListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        switch (itemId){  // я сделела здесь switch, а не if для того, чтобы легче было добавлять другие функции в меню, если они появятся.
+        switch (itemId) {  // я сделела здесь switch, а не if для того, чтобы легче было добавлять другие функции в меню, если они появятся.
             case R.id.multithreadingRegime:
                 startMultithreadingRegimeActivity();
                 break;
@@ -154,19 +146,26 @@ public class ContactListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getMultithreadingRegime(){
+    private void getMultithreadingRegime() {
         int regimeId = regimeManager.loadMultithreadingRegime();
-        switch (regimeId){
+        switch (regimeId) {
             case R.id.executorHandler:
-                databaseMethods = new Executor_Handler();
+                dataRepository = new HandlerRepository(contactDao, (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.executorFuture:
-                databaseMethods = new Executor_CompletableFuture();
+                dataRepository = new FutureRepository(contactDao, (Executor) getMainExecutor(),
+                        (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.rxJava:
-                databaseMethods = new RXJava();
+                dataRepository = new RXJavaRepository(contactDao);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dataRepository.close();
     }
 
     // ADAPTER
@@ -241,8 +240,6 @@ public class ContactListActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }
 
 

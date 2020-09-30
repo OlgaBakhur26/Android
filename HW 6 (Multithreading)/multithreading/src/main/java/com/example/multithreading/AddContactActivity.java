@@ -1,7 +1,6 @@
 package com.example.multithreading;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -12,30 +11,34 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.multithreading.Threads.DatabaseMethods;
-import com.example.multithreading.Threads.Executor_CompletableFuture;
-import com.example.multithreading.Threads.Executor_Handler;
+import com.example.multithreading.Threads.DataRepository;
+import com.example.multithreading.Threads.FutureRepository;
+import com.example.multithreading.Threads.HandlerRepository;
 import com.example.multithreading.Threads.MultithreadingRegimeManager;
-import com.example.multithreading.Threads.RXJava;
+import com.example.multithreading.Threads.RXJavaRepository;
 import com.example.multithreading.database.AppDatabase;
 import com.example.multithreading.database.Contact;
 import com.example.multithreading.database.ContactDao;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import static android.text.InputType.TYPE_CLASS_PHONE;
 import static android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;
 import static com.example.multithreading.database.CONTACT_TYPE.EMAIL;
 import static com.example.multithreading.database.CONTACT_TYPE.PHONE;
 
-public class AddContactActivity<runnable> extends AppCompatActivity {
+public class AddContactActivity extends AppCompatActivity {
 
     private RadioButton radioPhone;
     private RadioButton radioEmail;
     private EditText nameField;
     private EditText contactField;
 
-    private ContactDao contactDao;
     private Contact contact;
-    private DatabaseMethods databaseMethods;
+    private ContactDao contactDao;
+    private DataRepository dataRepository;
     private MultithreadingRegimeManager regimeManager;
 
     @Override
@@ -56,13 +59,13 @@ public class AddContactActivity<runnable> extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseMethods.addContact(runnableAdd);
+                addNewContact();
                 finish();
             }
         });
 
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -83,7 +86,7 @@ public class AddContactActivity<runnable> extends AppCompatActivity {
     View.OnClickListener radioButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.radioPhone:
                     adjustPhoneField();
                     break;
@@ -96,44 +99,40 @@ public class AddContactActivity<runnable> extends AppCompatActivity {
         }
     };
 
-    private void adjustPhoneField(){
+    private void adjustPhoneField() {
         contactField.setHint("Phone number");
         contactField.setInputType(TYPE_CLASS_PHONE);
     }
 
-    private void adjustEmailField(){
+    private void adjustEmailField() {
         contactField.setHint("Email");
         contactField.setInputType(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
     }
 
-    private void getMultithreadingRegime(){
+    private void getMultithreadingRegime() {
         int regimeId = regimeManager.loadMultithreadingRegime();
-        switch (regimeId){
+        switch (regimeId) {
             case R.id.executorHandler:
-                databaseMethods = new Executor_Handler();
+                dataRepository = new HandlerRepository(contactDao, (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.executorFuture:
-                databaseMethods = new Executor_CompletableFuture();
+                dataRepository = new FutureRepository(contactDao, (Executor) getMainExecutor(),
+                        (ThreadPoolExecutor) Executors.newFixedThreadPool(2));
                 break;
             case R.id.rxJava:
-                databaseMethods = new RXJava();
+                dataRepository = new RXJavaRepository(contactDao);
                 break;
         }
     }
 
-    private Runnable runnableAdd = new Runnable() {
-        @Override
-        public void run() {
-            Log.d("Executor", "runnableAdd: " + Thread.currentThread().getName());
-            if(radioPhone.isChecked()){
-                contact = new Contact(nameField.getText().toString(), PHONE, contactField.getText().toString());
-                contactDao.insert(contact);
-            }else if(radioEmail.isChecked()){
-                contact = new Contact(nameField.getText().toString(), EMAIL, contactField.getText().toString());
-            }
-            contactDao.insert(contact);
-            // тут может try/ catch на случай ошибки записи в базу?
+    private void addNewContact() {
+        if (radioPhone.isChecked()) {
+            contact = new Contact(nameField.getText().toString(), PHONE, contactField.getText().toString());
+        } else if (radioEmail.isChecked()) {
+            contact = new Contact(nameField.getText().toString(), EMAIL, contactField.getText().toString());
         }
-    };
+
+        dataRepository.addContact(contact);
+    }
 }
 
