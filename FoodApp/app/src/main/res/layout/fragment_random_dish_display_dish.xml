@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/viewRandomDish"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/viewItemPhoto"
+        android:layout_width="@dimen/item_image_size"
+        android:layout_height="@dimen/item_image_size"
+        android:layout_margin="@dimen/item_margin"
+        android:layout_gravity="center"
+        tools:src="@drawable/vegan"
+        android:background="@android:color/transparent"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@android:color/holo_blue_dark"
+        android:elevation="@dimen/item_elevation"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/item_margin">
+
+        <TextView
+            android:id="@+id/viewDishName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_margin"
+            android:fontFamily="sans-serif"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/big_text_size"
+            tools:text="Dish name"/>
+
+        <TextView
+            android:id="@+id/viewCategoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_margin"
+            style="@style/PrimaryPage_FragmentDisplayDish_TextStyle"
+            tools:text="Starter"/>
+
+        <TextView
+            android:id="@+id/viewAreaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_margin"
+            style="@style/PrimaryPage_FragmentDisplayDish_TextStyle"
+            tools:text="Italian"/>
+
+        <TextView
+            android:id="@+id/viewIngredientsList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_margin"
+            android:ellipsize="end"
+            style="@style/PrimaryPage_FragmentDisplayDish_TextStyle"
+            tools:text="Ingredients:"/>
+    </LinearLayout>
+
+</LinearLayout>

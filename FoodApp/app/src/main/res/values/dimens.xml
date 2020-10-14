@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    PrimaryPageActivity-->
+    <dimen name="elevation_floating_button_random">20dp</dimen>
+    <dimen name="category_text_size">24dp</dimen>
+    <dimen name="subCategory_text_size">16dp</dimen>
+    <dimen name="item_image_size">130dp</dimen>
+    <dimen name="item_margin">3dp</dimen>
+    <dimen name="item_elevation">15dp</dimen>
+
+    <!--    FragmentRandomDishDisplayDish-->
+    <dimen name="big_text_size">16sp</dimen>
+    <dimen name="small_text_size">14sp</dimen>
+
+    <!--    Main Toolbar -->
+    <dimen name="toolbar_padding">8dp</dimen>
+
+    <!--   FragmentDishFullDescription -->
+    <dimen name="youTube_icon_size">24sp</dimen>
+
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FoodApp</string>
+
+    <!--PrimaryPageActivity-->
+    <string name="search_dish_by_name">Enter a dish name </string>
+    <string name="categoryTitle">Category</string>
+    <string name="areaTitle">Area</string>
+    <string name="ingredientTitle">Main ingredient</string>
+    <string name="getRandomDish">Get a random dish!</string>
+
+    <!--   FragmentDishFullDescription -->
+    <string name="dishIngredientsTitle">Ingredients:</string>
+    <string name="dishInstructionTitle">Instruction:</string>
+    <string name="createNote">Create a note</string>
+    <string name="toolbarDishActivityTitle">Description</string>
+</resources>
