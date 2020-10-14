@@ -8,12 +8,12 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/viewItemFlag"
-        android:layout_width="@dimen/item_image_size"
-        android:layout_height="@dimen/item_image_size"
+        android:layout_width="@dimen/item_image_size_main_activity"
+        android:layout_height="@dimen/item_image_size_main_activity"
         tools:src="@drawable/vegan"
         android:background="@android:color/transparent"
         app:civ_border_width="5dp"
-        app:civ_border_color="@android:color/holo_orange_light"
+        app:civ_border_color="@color/itemArea_strokeColor"
         android:elevation="@dimen/item_elevation"
         android:layout_marginStart="@dimen/item_margin"
         android:layout_marginEnd="@dimen/item_margin"

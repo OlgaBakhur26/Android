@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#AA8E7A</color>
+    <color name="colorPrimaryDark">#633311</color>
     <color name="colorAccent">#03DAC5</color>
 
     <!--    PrimaryPageActivity-->
     <color name="toolbarPrimaryPageColor">@android:color/holo_red_light</color>
+    <color name="homeButtonColor">#FFF8DC</color>
 
-    <!--    Toolbar-->
-    <color name="toolbarColor">@android:color/holo_blue_dark</color>
+    <!--    ItemCategory-->
+    <color name="itemCategory_strokeColor">#D59595</color>
+
+    <!--    ItemArea-->
+    <color name="itemArea_strokeColor">#DEB887</color>
+
+    <!--    ItemRandom-->
+    <color name="itemRandom_strokeColor">#FFF8DC</color>
+
+    <!--   DishDescriptionActivity -->
+    <color name="dishDescriptionImage_strokeColor">#BC8F8F</color>
 </resources>

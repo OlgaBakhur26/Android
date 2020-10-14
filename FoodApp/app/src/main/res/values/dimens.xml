@@ -4,7 +4,7 @@
     <dimen name="elevation_floating_button_random">20dp</dimen>
     <dimen name="category_text_size">24dp</dimen>
     <dimen name="subCategory_text_size">16dp</dimen>
-    <dimen name="item_image_size">130dp</dimen>
+    <dimen name="item_image_size_main_activity">130dp</dimen>
     <dimen name="item_margin">3dp</dimen>
     <dimen name="item_elevation">15dp</dimen>
 
@@ -15,7 +15,20 @@
     <!--    Main Toolbar -->
     <dimen name="toolbar_padding">8dp</dimen>
 
-    <!--   FragmentDishFullDescription -->
-    <dimen name="youTube_icon_size">24sp</dimen>
+    <!--    Category/AreaListActivity-->
+    <dimen name="dishTitle_textSize">24sp</dimen>
+    <dimen name="frameMargin">16dp</dimen>
+    <dimen name="item_image_size_list_activity">200dp</dimen>
+
+    <!--    DishDescriptionActivity-->
+    <dimen name="icon_CreateNote_size">50dp</dimen>
+    <dimen name="youTube_icon_height">24dp</dimen>
+    <dimen name="dishDescriptionDishName_textSize">24sp</dimen>
+    <dimen name="dishDescriptionTitle_textSize">20sp</dimen>
+    <dimen name="dishDescriptionOtherText_textSize">16sp</dimen>
+    <dimen name="dishDescription_imageSize">200dp</dimen>
+    <dimen name="dishDescription_bigMargin">16dp</dimen>
+    <dimen name="dishDescription_smallMargin">8dp</dimen>
+
 
 </resources>

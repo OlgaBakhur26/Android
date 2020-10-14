@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/main_activity_font">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,38 +26,55 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/viewDishPhoto"
-                android:layout_width="@dimen/item_image_size"
-                android:layout_height="@dimen/item_image_size"
-                tools:src="@drawable/vegan"/>
+                android:layout_width="@dimen/dishDescription_imageSize"
+                android:layout_height="@dimen/dishDescription_imageSize"
+                tools:src="@drawable/vegan"
+                android:background="@android:color/transparent"
+                app:civ_border_width="5dp"
+                app:civ_border_color="@color/dishDescriptionImage_strokeColor"
+                android:elevation="@dimen/item_elevation"
+                android:layout_margin="@dimen/dishDescription_bigMargin"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/dishDescription_smallMargin">
 
                 <TextView
                     android:id="@+id/viewDishName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Dish name"/>
+                    android:textSize="@dimen/dishDescriptionDishName_textSize"
+                    style="@style/DishDescriptionActivity_Titles_TextStyle"
+                    tools:text="Dish name"
+                    android:layout_marginBottom="@dimen/dishDescription_smallMargin"/>
 
                 <TextView
                     android:id="@+id/viewDishCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Dish category"/>
+                    android:textSize="@dimen/dishDescriptionTitle_textSize"
+                    style="@style/DishDescriptionActivity_Titles_TextStyle"
+                    tools:text="Dish category"
+                    android:layout_marginBottom="@dimen/dishDescription_smallMargin"/>
 
                 <TextView
                     android:id="@+id/viewDishArea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Dish area"/>
+                    android:textSize="@dimen/dishDescriptionTitle_textSize"
+                    style="@style/DishDescriptionActivity_Titles_TextStyle"
+                    tools:text="Dish area"
+                    android:layout_marginBottom="@dimen/dishDescription_smallMargin"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/dishDescriptionTitle_textSize"
+                    style="@style/DishDescriptionActivity_Titles_TextStyle"
                     android:text="@string/dishIngredientsTitle" />
 
                 <TextView
@@ -64,7 +82,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    tools:text="Dish ingredients"/>
+                    tools:text="Dish ingredients"
+                    style="@style/DishDescriptionActivity_GeneralText_TextStyle"
+                    android:textSize="@dimen/dishDescriptionOtherText_textSize"
+                    android:layout_marginBottom="@dimen/dishDescription_smallMargin"/>
 
             </LinearLayout>
 
@@ -77,15 +98,21 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:text="@string/dishInstructionTitle" />
+                android:layout_height="wrap_content"
+                android:text="@string/dishInstructionTitle"
+                style="@style/DishDescriptionActivity_Titles_TextStyle"
+                android:textSize="@dimen/dishDescriptionTitle_textSize"
+                android:layout_marginStart="@dimen/dishDescription_smallMargin"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/viewIconYouTube"
-                android:layout_width="@dimen/youTube_icon_size"
-                android:layout_height="@dimen/youTube_icon_size"
+                android:layout_width="0dp"
                 android:layout_weight="1"
+                android:layout_height="@dimen/youTube_icon_height"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="@dimen/dishDescription_smallMargin"
                 android:src="@drawable/ic_youtube"/>
 
         </LinearLayout>
@@ -95,7 +122,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            tools:text="Long instruction...................."/>
+            tools:text="Long instruction...................."
+            style="@style/DishDescriptionActivity_GeneralText_TextStyle"
+            android:textSize="@dimen/dishDescriptionOtherText_textSize"
+            android:layout_marginBottom="@dimen/dishDescription_smallMargin"
+            android:layout_marginStart="@dimen/dishDescription_smallMargin"
+            android:layout_marginEnd="@dimen/dishDescription_smallMargin"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -105,19 +137,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/createNote"/>
+                android:text="@string/createNote"
+                style="@style/DishDescriptionActivity_Titles_TextStyle"
+                android:textSize="@dimen/dishDescriptionTitle_textSize"
+                android:layout_marginStart="@dimen/dishDescription_smallMargin"
+                android:layout_gravity="center_vertical"/>
 
             <ImageButton
                 android:id="@+id/viewButtonCreateNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_create_note"/>
+                android:layout_width="@dimen/icon_CreateNote_size"
+                android:layout_height="@dimen/icon_CreateNote_size"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_create_note"
+                android:layout_gravity="center_vertical"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewNotes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dishDescription_smallMargin"
+            android:layout_marginEnd="@dimen/dishDescription_smallMargin"
+            android:layout_marginTop="@dimen/dishDescription_smallMargin"/>
 
     </LinearLayout>
 

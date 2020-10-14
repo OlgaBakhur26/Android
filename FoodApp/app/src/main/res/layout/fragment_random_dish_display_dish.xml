@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@android:color/white"
+    android:background="@drawable/random_dish_display_font"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/viewItemPhoto"
-        android:layout_width="@dimen/item_image_size"
-        android:layout_height="@dimen/item_image_size"
+        android:layout_width="@dimen/item_image_size_main_activity"
+        android:layout_height="@dimen/item_image_size_main_activity"
         android:layout_margin="@dimen/item_margin"
         android:layout_gravity="center"
         tools:src="@drawable/vegan"
         android:background="@android:color/transparent"
         app:civ_border_width="5dp"
-        app:civ_border_color="@android:color/holo_blue_dark"
+        app:civ_border_color="@color/itemRandom_strokeColor"
         android:elevation="@dimen/item_elevation"/>
 
     <LinearLayout

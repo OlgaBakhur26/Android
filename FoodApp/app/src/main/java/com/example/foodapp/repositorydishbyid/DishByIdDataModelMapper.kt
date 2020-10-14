@@ -1,5 +1,6 @@
 package com.example.foodapp.repositorydishbyid
 
+import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.StringBuilder
@@ -17,6 +18,11 @@ class DishByIdDataModelMapper : (String) -> DishByIdDataModel{
         val measureList = getMeasureList(jsonListArray, measureTitles)
 
         val ingredients = concatIngredientsAndMeasures(ingredientsList, measureList)
+
+        Log.d("TAG", "ingredientsTitles: ${ingredientsTitles.toString()}")
+        Log.d("TAG", "ingredientsList: ${ingredientsList.toString()}")
+        Log.d("TAG", "measureTitles: ${measureTitles.toString()}")
+        Log.d("TAG", "measureList: ${measureList.toString()}")
 
         return DishByIdDataModel(
             dishId = jsonListArray.getJSONObject(0).getString("idMeal"),
