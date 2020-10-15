@@ -55,13 +55,6 @@
             style="@style/FavoriteDishes_TextStyle"
             tools:text="Italian"/>
 
-        <TextView
-            android:id="@+id/viewIngredientsList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/item_margin"
-            style="@style/FavoriteDishes_TextStyle"
-            tools:text="Ingredients:"/>
     </LinearLayout>
 
 </LinearLayout>

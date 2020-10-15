@@ -30,6 +30,8 @@
     <dimen name="dishDescription_bigMargin">16dp</dimen>
     <dimen name="dishDescription_smallMargin">8dp</dimen>
     <dimen name="dishDescription_toolbarTextSize">20sp</dimen>
+    <dimen name="cardView_cornerRadius">15dp</dimen>
+    <dimen name="cardView_elevation">50dp</dimen>
 
     <!--    YouTubeFragment-->
     <dimen name="progress_size">20dp</dimen>

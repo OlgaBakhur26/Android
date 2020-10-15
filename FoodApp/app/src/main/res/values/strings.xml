@@ -11,7 +11,7 @@
     <!--   FragmentDishFullDescription -->
     <string name="dishIngredientsTitle">Ingredients:</string>
     <string name="dishInstructionTitle">Instruction:</string>
-    <string name="createNote">Create a note</string>
+    <string name="createNote"> Create a note:</string>
     <string name="toolbarDishActivityTitle">Description</string>
 
     <!--    YouTubeActivity-->

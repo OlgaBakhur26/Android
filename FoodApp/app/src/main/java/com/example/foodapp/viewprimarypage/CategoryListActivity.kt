@@ -144,11 +144,12 @@ class CategoryListActivity : AppCompatActivity() {
             fun bind(dishListByCategoryDataModel: DishListByCategoryDataModel, onDishByIdClickListener: OnDishByIdClickListener){
                 itemView.apply {
                     viewDishName.text = dishListByCategoryDataModel.dishName
-                    setOnClickListener { onDishByIdClickListener.displayDishById(dishListByCategoryDataModel.dishId) }
 
                     Glide.with(context)
                         .load(dishListByCategoryDataModel.urlToImage)
                         .into(viewItemPhoto)
+
+                    setOnClickListener { onDishByIdClickListener.displayDishById(dishListByCategoryDataModel.dishId) }
                 }
             }
         }

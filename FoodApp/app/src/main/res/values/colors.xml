@@ -19,7 +19,9 @@
 
     <!--   DishDescriptionActivity -->
     <color name="dishDescriptionImage_strokeColor">#BC8F8F</color>
+    <color name="cardColor">#BC8F8F</color>
 
     <!--   FavoriteDishesActivity -->
     <color name="favoriteDishes_strokeColor">#800000</color>
+
 </resources>

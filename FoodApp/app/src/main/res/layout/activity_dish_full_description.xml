@@ -157,36 +157,69 @@
             android:layout_marginStart="@dimen/dishDescription_smallMargin"
             android:layout_marginEnd="@dimen/dishDescription_smallMargin"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/createNote"
-                style="@style/DishDescriptionActivity_Titles_TextStyle"
-                android:textSize="@dimen/dishDescriptionTitle_textSize"
-                android:layout_marginStart="@dimen/dishDescription_smallMargin"
-                android:layout_gravity="center_vertical"/>
-
-            <ImageButton
-                android:id="@+id/viewButtonCreateNote"
-                android:layout_width="@dimen/icon_CreateNote_size"
-                android:layout_height="@dimen/icon_CreateNote_size"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_create_note"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recyclerViewNotes"-->
-<!--            android:layout_width="match_parent"-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="@dimen/dishDescription_smallMargin"-->
-<!--            android:layout_marginEnd="@dimen/dishDescription_smallMargin"-->
-<!--            android:layout_marginTop="@dimen/dishDescription_smallMargin"/>-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/createNote"-->
+<!--                style="@style/DishDescriptionActivity_Titles_TextStyle"-->
+<!--                android:textSize="@dimen/dishDescriptionTitle_textSize"-->
+<!--                android:layout_marginStart="@dimen/dishDescription_smallMargin"-->
+<!--                android:layout_gravity="center_vertical"/>-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/viewButtonCreateNote"-->
+<!--                android:layout_width="@dimen/icon_CreateNote_size"-->
+<!--                android:layout_height="@dimen/icon_CreateNote_size"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:src="@drawable/ic_create_note"-->
+<!--                android:layout_gravity="center_vertical"/>-->
+<!--        </LinearLayout>-->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dishDescription_bigMargin"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/cardView_cornerRadius"
+            app:cardElevation="@dimen/cardview_default_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/viewCreateNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/createNote"
+                    android:background="@android:color/transparent"
+                    style="@style/DishDescriptionActivity_Titles_TextStyle"
+                    android:textSize="@dimen/dishDescriptionTitle_textSize"
+                    android:layout_marginStart="@dimen/dishDescription_smallMargin"
+                    android:layout_gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_create_note"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dishDescription_smallMargin"
+                            android:layout_marginEnd="@dimen/dishDescription_smallMargin"
+                            android:layout_marginTop="@dimen/dishDescription_smallMargin"/>
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
 
 
     </LinearLayout>
