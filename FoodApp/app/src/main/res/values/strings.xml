@@ -13,4 +13,10 @@
     <string name="dishInstructionTitle">Instruction:</string>
     <string name="createNote">Create a note</string>
     <string name="toolbarDishActivityTitle">Description</string>
+
+    <!--    YouTubeActivity-->
+    <string name="toolbarYouTubeActivityTitle">Back to Description</string>
+
+    <!--    FavoriteDishesActivity-->
+    <string name="toolbarFavoriteDishesTitle">Favorite dishes</string>
 </resources>

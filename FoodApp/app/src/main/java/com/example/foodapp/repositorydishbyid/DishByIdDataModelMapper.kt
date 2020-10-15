@@ -19,11 +19,6 @@ class DishByIdDataModelMapper : (String) -> DishByIdDataModel{
 
         val ingredients = concatIngredientsAndMeasures(ingredientsList, measureList)
 
-        Log.d("TAG", "ingredientsTitles: ${ingredientsTitles.toString()}")
-        Log.d("TAG", "ingredientsList: ${ingredientsList.toString()}")
-        Log.d("TAG", "measureTitles: ${measureTitles.toString()}")
-        Log.d("TAG", "measureList: ${measureList.toString()}")
-
         return DishByIdDataModel(
             dishId = jsonListArray.getJSONObject(0).getString("idMeal"),
             dishName = jsonListArray.getJSONObject(0).getString("strMeal"),
@@ -81,12 +76,10 @@ class DishByIdDataModelMapper : (String) -> DishByIdDataModel{
     private fun concatIngredientsAndMeasures(ingredientsList: MutableList<String>, measureList: MutableList<String>): String{
         val stringBuilder = StringBuilder()
         for (index in 0 until ingredientsList.size){
-            for (index in 0 until measureList.size){
-                stringBuilder.append(ingredientsList[index])
-                stringBuilder.append(": ")
-                stringBuilder.append(measureList[index])
-                stringBuilder.append("\n")
-            }
+            stringBuilder.append(ingredientsList[index])
+            stringBuilder.append(": ")
+            stringBuilder.append(measureList[index])
+            stringBuilder.append("\n")
         }
         stringBuilder.deleteCharAt(stringBuilder.length - 1)
         return stringBuilder.toString()

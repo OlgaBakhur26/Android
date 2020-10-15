@@ -29,6 +29,12 @@
     <dimen name="dishDescription_imageSize">200dp</dimen>
     <dimen name="dishDescription_bigMargin">16dp</dimen>
     <dimen name="dishDescription_smallMargin">8dp</dimen>
+    <dimen name="dishDescription_toolbarTextSize">20sp</dimen>
+
+    <!--    YouTubeFragment-->
+    <dimen name="progress_size">20dp</dimen>
+
+
 
 
 </resources>

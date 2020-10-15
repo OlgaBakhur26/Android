@@ -7,24 +7,24 @@
     android:background="@drawable/main_activity_font">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAreaListActivity"
+        android:id="@+id/toolbarFavoriteDishes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="@string/areaTitle"
+        app:title="@string/toolbarFavoriteDishesTitle"
         style="@style/OtherToolbarStyle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recycleViewAreaList">
+        app:layout_constraintBottom_toTopOf="@id/recycleViewFavoriteDishesList">
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewAreaList"
+        android:id="@+id/recycleViewFavoriteDishesList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarAreaListActivity"
+        app:layout_constraintTop_toBottomOf="@id/toolbarFavoriteDishes"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

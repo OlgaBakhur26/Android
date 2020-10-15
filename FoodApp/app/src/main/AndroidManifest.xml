@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewprimarypage.DishFullDescriptionActivity"></activity>
+        <activity android:name=".viewprimarypage.FavoriteDishesActivity"></activity>
+        <activity android:name=".viewprimarypage.YouTubeActivity" />
+        <activity android:name=".viewprimarypage.DishFullDescriptionActivity" />
         <activity android:name=".viewprimarypage.AreaListActivity" />
         <activity android:name=".viewprimarypage.CategoryListActivity" />
         <activity android:name=".viewprimarypage.MainActivity">

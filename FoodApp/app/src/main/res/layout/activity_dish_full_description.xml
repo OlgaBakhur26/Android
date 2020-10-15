@@ -16,8 +16,36 @@
             android:id="@+id/toolbarDishFullDescriptionActivity"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/toolbarDishActivityTitle"
             style="@style/OtherToolbarStyle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbarDishActivityTitle"
+                    android:textColor="@color/toolbarContentColor"
+                    android:textSize="@dimen/dishDescription_toolbarTextSize"
+                    android:layout_gravity="center_vertical|left"
+                    android:fontFamily="sans-serif-medium"/>
+
+
+                <ImageButton
+                    android:id="@+id/viewAddToFavorite"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_favorite"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -110,7 +138,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/youTube_icon_height"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:background="@android:color/transparent"
                 android:layout_marginEnd="@dimen/dishDescription_smallMargin"
                 android:src="@drawable/ic_youtube"/>
@@ -152,13 +180,14 @@
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewNotes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dishDescription_smallMargin"
-            android:layout_marginEnd="@dimen/dishDescription_smallMargin"
-            android:layout_marginTop="@dimen/dishDescription_smallMargin"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerViewNotes"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/dishDescription_smallMargin"-->
+<!--            android:layout_marginEnd="@dimen/dishDescription_smallMargin"-->
+<!--            android:layout_marginTop="@dimen/dishDescription_smallMargin"/>-->
+
 
     </LinearLayout>
 

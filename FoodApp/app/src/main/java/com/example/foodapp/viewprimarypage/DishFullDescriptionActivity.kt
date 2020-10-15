@@ -2,30 +2,34 @@ package com.example.foodapp.viewprimarypage
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.repositorycategory.CategoryListDataModelMapper
-import com.example.foodapp.repositorycategory.CategoryRepositoryImpl
+import com.example.foodapp.databasefavorite.FavoriteDishesDao
+import com.example.foodapp.databasefavorite.FavoriteDishesDatabase
+import com.example.foodapp.repositorydishbyid.DishByIdDataModel
 import com.example.foodapp.repositorydishbyid.DishByIdDataModelMapper
 import com.example.foodapp.repositorydishbyid.DishByIdRepositoryImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_dish_full_description.*
 import kotlinx.android.synthetic.main.activity_dish_full_description.viewDishName
-import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.android.synthetic.main.fragment_random_dish_display_dish.*
 import okhttp3.OkHttpClient
 
 const val KEY_EXTRA_DISH_ID = "KEY_EXTRA_DISH_ID"
 
-class DishFullDescriptionActivity : AppCompatActivity() {
+class DishFullDescriptionActivity : AppCompatActivity(){
 
     private var disposable: Disposable? = null
     private lateinit var dishId: String
+    private lateinit var favoriteDishesDao: FavoriteDishesDao
+    private lateinit var dishByIdDataModel: DishByIdDataModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,15 +39,48 @@ class DishFullDescriptionActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val favoriteDishesDatabase = FavoriteDishesDatabase.getDatabaseInstance(this)
+        if(favoriteDishesDatabase != null){
+            favoriteDishesDao = favoriteDishesDatabase.getFavoriteDishesDao()
+        }
+
         dishId = getDishId()
         fetchDishById()
+
+        whetherIsFavorite(dishId)
+
+        viewAddToFavorite.setOnClickListener {
+            if(favoriteDishesDao.getById(dishId) == null){
+                favoriteDishesDao.insert(dishByIdDataModel)
+            }else{
+                favoriteDishesDao.delete(dishByIdDataModel)
+            }
+        }
+    }
+
+    private fun whetherIsFavorite(dishId: String){
+        if(favoriteDishesDao.getById(dishId) != null){
+            viewAddToFavorite.setColorFilter(Color.RED)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
+        when(item.itemId){
+            R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
+            android.R.id.home ->  finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun startFavoriteDishesActivity(){
+        val instance = FavoriteDishesActivity.newInstance()
+        val intent = instance.newIntent(this)
+        startActivity(intent)
     }
 
     private fun getDishId(): String{
@@ -66,17 +103,28 @@ class DishFullDescriptionActivity : AppCompatActivity() {
                         viewDishIngredientsList.text = ingredients
                         viewInstruction.text = instructions
 
+                        viewIconYouTube.setOnClickListener {
+                            YouTubeActivity.newInstance().newIntent(this@DishFullDescriptionActivity)
+                            startYouTubeActivity(this@DishFullDescriptionActivity, urlToVideo)
+                        }
+
                         Glide.with(this@DishFullDescriptionActivity)
                             .load(urlToImage)
                             .into(viewDishPhoto)
 
-                        /// ссылка на youTube
                         //// recyclerViewNotes
                     }
+                    dishByIdDataModel = dish
                 },
                 { throwable -> Log.d("DishFullDescriptionActivity", throwable.toString()) }
             )
+    }
 
+    private fun startYouTubeActivity(context: Context, urlToVideo: String){
+        val instance = YouTubeActivity.newInstance()
+        val intent = instance.newIntent(context)
+        intent.putExtra(KEY_EXTRA_URL_TO_VIDEO, urlToVideo)
+        startActivity(intent)
     }
 
     override fun onDestroy() {

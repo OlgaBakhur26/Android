@@ -5,10 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,11 +39,23 @@ class AreaListActivity : AppCompatActivity() {
         initItemList()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
+        when(item.itemId){
+            R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
+            android.R.id.home ->  finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun startFavoriteDishesActivity(){
+        val instance = FavoriteDishesActivity.newInstance()
+        val intent = instance.newIntent(this)
+        startActivity(intent)
     }
 
     private fun getAreaName(): String{

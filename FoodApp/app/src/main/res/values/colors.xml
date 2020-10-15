@@ -6,7 +6,7 @@
 
     <!--    PrimaryPageActivity-->
     <color name="toolbarPrimaryPageColor">@android:color/holo_red_light</color>
-    <color name="homeButtonColor">#FFF8DC</color>
+    <color name="toolbarContentColor">#FFF8DC</color>
 
     <!--    ItemCategory-->
     <color name="itemCategory_strokeColor">#D59595</color>
@@ -19,4 +19,7 @@
 
     <!--   DishDescriptionActivity -->
     <color name="dishDescriptionImage_strokeColor">#BC8F8F</color>
+
+    <!--   FavoriteDishesActivity -->
+    <color name="favoriteDishes_strokeColor">#800000</color>
 </resources>
