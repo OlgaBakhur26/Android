@@ -1,6 +1,7 @@
 package com.example.foodapp.viewprimarypage
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,7 +56,14 @@ class FavoriteDishesActivity : AppCompatActivity() {
             adapter = FavoriteDishesActivity.FavoriteDishAdapter(favoriteDishesList, object : OnDishByIdClickListener {
                 override fun displayDishById(dishId: String) {
                     startDishFullDescriptionActivity(dishId)
+                    // LiveData
                 }
+            }, object : OnDishByIdLongClickListener{
+                override fun deleteDishById(dishId: String) {
+                    showDialogDeleteFavorite(dishId)
+                    // LiveData
+                }
+
             })
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
@@ -79,6 +88,24 @@ class FavoriteDishesActivity : AppCompatActivity() {
         return favoriteDishesDao.getAll()
     }
 
+    private fun showDialogDeleteFavorite(dishId: String){
+        val dishToDelete = favoriteDishesDao.getById(dishId)
+        val dishName = dishToDelete.dishName
+        val dialog = AlertDialog.Builder(this@FavoriteDishesActivity, R.style.Widget_AppCompat_ButtonBar_AlertDialog)
+        dialog
+            .setTitle(R.string.deleteDishDialogTitle)
+            .setMessage(dishName)
+            .setPositiveButton(getString(R.string.dialogDeleteDishPositiveButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                    favoriteDishesDao.delete(dishToDelete)
+                })
+            .setNegativeButton(getString(R.string.dialogDeleteDishNegativeButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                })
+            .create()
+        dialog.show()
+    }
+
     companion object {
         fun newInstance() = FavoriteDishesActivity()
     }
@@ -91,7 +118,8 @@ class FavoriteDishesActivity : AppCompatActivity() {
     // ADAPTER
     class FavoriteDishAdapter(
         private val itemList: List<DishByIdDataModel>,
-        private val onDishByIdClickListener: OnDishByIdClickListener
+        private val onDishByIdClickListener: OnDishByIdClickListener,
+        private val onDishByIdLongClickListener: OnDishByIdLongClickListener
     ) : RecyclerView.Adapter<FavoriteDishAdapter.FavoriteDishViewHolder>(){
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteDishViewHolder =
@@ -100,7 +128,7 @@ class FavoriteDishesActivity : AppCompatActivity() {
             )
 
         override fun onBindViewHolder(holder: FavoriteDishViewHolder, position: Int) {
-            holder.bind(itemList[position], onDishByIdClickListener)
+            holder.bind(itemList[position], onDishByIdClickListener, onDishByIdLongClickListener)
         }
 
         override fun getItemCount(): Int = itemList.size
@@ -108,7 +136,8 @@ class FavoriteDishesActivity : AppCompatActivity() {
         // ViewHolder
         class FavoriteDishViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-            fun bind(dishByIdDataModel: DishByIdDataModel, onDishByIdClickListener: OnDishByIdClickListener){
+            fun bind(dishByIdDataModel: DishByIdDataModel, onDishByIdClickListener: OnDishByIdClickListener,
+                     onDishByIdLongClickListener: OnDishByIdLongClickListener){
                 itemView.apply {
                     viewDishName.text = dishByIdDataModel.dishName
                     viewCategoryTitle.text = dishByIdDataModel.categoryName
@@ -119,11 +148,10 @@ class FavoriteDishesActivity : AppCompatActivity() {
                         .load(dishByIdDataModel.urlToImage)
                         .into(viewItemPhoto)
 
-
-//                    setOnLongClickListener(View.OnLongClickListener {
-//                        Log.d("TAG", "Long click")
-//                        true
-//                    })
+                    setOnLongClickListener {
+                        onDishByIdLongClickListener.deleteDishById(dishByIdDataModel.dishId)
+                        return@setOnLongClickListener true
+                    }
                 }
             }
         }

@@ -11,12 +11,25 @@
     <!--   FragmentDishFullDescription -->
     <string name="dishIngredientsTitle">Ingredients:</string>
     <string name="dishInstructionTitle">Instruction:</string>
-    <string name="createNote"> Create a note:</string>
+    <string name="createNote"> Create a note</string>
+    <string name="deleteNoteDialogTitle">Do you want to delete this note?</string>
     <string name="toolbarDishActivityTitle">Description</string>
+    <string name="dialogCreateNoteHint">Type your note here</string>
+    <string name="dialogCreateNotePositiveButton">Create</string>
+    <string name="dialogCreateNoteNegativeButton">Cancel</string>
+    <string name="dialogDeleteNotePositiveButton">Delete</string>
+    <string name="dialogDeleteNoteNegativeButton">Cancel</string>
+    <string name="editNoteTitle">Edit note</string>
+    <string name="dialogEditNotePositiveButton">Save</string>
+    <string name="dialogEditNoteNegativeButton">Cancel</string>
 
     <!--    YouTubeActivity-->
     <string name="toolbarYouTubeActivityTitle">Back to Description</string>
 
     <!--    FavoriteDishesActivity-->
     <string name="toolbarFavoriteDishesTitle">Favorite dishes</string>
+    <string name="deleteDishDialogTitle">Do you want to delete this dish from Favorites?</string>
+    <string name="dialogDeleteDishPositiveButton">Delete</string>
+    <string name="dialogDeleteDishNegativeButton">Cancel</string>
+
 </resources>

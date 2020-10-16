@@ -1,15 +1,16 @@
 package com.example.foodapp.viewprimarypage
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Adapter
+import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +28,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_dish_full_description.*
 import kotlinx.android.synthetic.main.activity_dish_full_description.viewDishName
-import kotlinx.android.synthetic.main.activity_favorite_dishes.*
 import kotlinx.android.synthetic.main.item_note.view.*
 import okhttp3.OkHttpClient
 
@@ -74,31 +74,8 @@ class DishFullDescriptionActivity : AppCompatActivity(){
         }
 
         viewCreateNote.setOnClickListener {
-            ///////// тут появляется диалог, где вводишь заметку, потом сохраняешь в базу + LiveData
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        notesList = loadNotesList()
-        initItemList()
-    }
-
-    private fun initItemList() {
-        recyclerViewNotes.apply {
-            adapter = NotesAdapter(notesList, object : OnNoteClickListener {
-                override fun editNote(noteId: Int) {
-                    //// диалог спрашивает: удалить заметку или отмена?
-                }
-            })
-            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        }
-    }
-
-    private fun whetherIsFavorite(dishId: String){
-        if(favoriteDishesDao.getById(dishId) != null){
-            viewAddToFavorite.setColorFilter(Color.RED)
+            showDialogCreateNote()
+            ///////// + LiveData
         }
     }
 
@@ -121,13 +98,44 @@ class DishFullDescriptionActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
+    private fun whetherIsFavorite(dishId: String){
+        if(favoriteDishesDao.getById(dishId) != null){
+            viewAddToFavorite.setColorFilter(Color.RED)
+        }
+    }
+
     private fun getDishId(): String{
         val intent = intent
         return intent.getStringExtra(KEY_EXTRA_DISH_ID) as String
     }
 
+    override fun onResume() {
+        super.onResume()
+        notesList = loadNotesList()
+        initItemList()
+    }
+
+    private fun initItemList() {
+        recyclerViewNotes.apply {
+            adapter = NotesAdapter(notesList, object : OnNoteClickListener{
+                override fun editNote(noteId: String) {
+                    showDialogEditNote(noteId)
+                    //// + LiveData
+                }
+
+            }, object : OnNoteLongClickListener {
+                override fun deleteNote(noteId: String) {
+                    showDialogDeleteNote(noteId)
+                    //// + LiveData
+                }
+            })
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        }
+    }
+
     private fun loadNotesList(): List<Note>{
-        return noteDao.getAll()
+        return noteDao.getAll(dishId)
     }
 
     private fun fetchDishById() {
@@ -167,6 +175,83 @@ class DishFullDescriptionActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
+    private fun showDialogCreateNote(){
+        val noteTextField = EditText(this@DishFullDescriptionActivity)
+        noteTextField.hint = getString(R.string.dialogCreateNoteHint)
+
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+
+        noteTextField.layoutParams = layoutParams
+
+        val dialog = AlertDialog.Builder(this@DishFullDescriptionActivity, R.style.Widget_AppCompat_ButtonBar_AlertDialog)
+        dialog
+            .setTitle(R.string.createNote)
+            .setView(noteTextField)
+            .setPositiveButton(getString(R.string.dialogCreateNotePositiveButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                    val newNote = Note(
+                        dishId = dishId,
+                        noteText = noteTextField.text.toString()
+                    )
+                    noteDao.insert(newNote)
+                })
+            .setNegativeButton(getString(R.string.dialogCreateNoteNegativeButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                })
+            .create()
+        dialog.show()
+    }
+
+    private fun showDialogEditNote(noteId: String){
+        val noteToEdit = noteDao.getById(noteId)
+        val noteToEditText = noteToEdit.noteText
+        val noteTextField = EditText(this@DishFullDescriptionActivity)
+
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+
+        noteTextField.layoutParams = layoutParams
+        noteTextField.setText(noteToEditText)
+
+        val dialog = AlertDialog.Builder(this@DishFullDescriptionActivity, R.style.Widget_AppCompat_ButtonBar_AlertDialog)
+        dialog
+            .setTitle(R.string.editNoteTitle)
+            .setView(noteTextField)
+            .setPositiveButton(getString(R.string.dialogEditNotePositiveButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                    noteToEdit.noteText = noteTextField.text.toString()
+                    noteDao.update(noteToEdit)
+                })
+            .setNegativeButton(getString(R.string.dialogEditNoteNegativeButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                })
+            .create()
+        dialog.show()
+    }
+
+    private fun showDialogDeleteNote(noteId: String){
+        val noteToDelete = noteDao.getById(noteId)
+        val noteToDeleteText = noteToDelete.noteText
+        val dialog = AlertDialog.Builder(this@DishFullDescriptionActivity, R.style.Widget_AppCompat_ButtonBar_AlertDialog)
+        dialog
+            .setTitle(R.string.deleteNoteDialogTitle)
+            .setMessage(noteToDeleteText)
+            .setPositiveButton(getString(R.string.dialogDeleteNotePositiveButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                    noteDao.delete(noteToDelete)
+                })
+            .setNegativeButton(getString(R.string.dialogDeleteNoteNegativeButton),
+                DialogInterface.OnClickListener { dialog, which ->
+                })
+            .create()
+        dialog.show()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         disposable?.dispose()
@@ -180,9 +265,11 @@ class DishFullDescriptionActivity : AppCompatActivity(){
         return Intent(context, DishFullDescriptionActivity::class.java)
     }
 
+    // ADAPTER
     class NotesAdapter(
         private val itemList: List<Note>,
-        private val onNoteClickListener: OnNoteClickListener
+        private val onNoteClickListener: OnNoteClickListener,
+        private val onNoteLongClickListener: OnNoteLongClickListener
     ): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>(){
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder =
@@ -191,16 +278,22 @@ class DishFullDescriptionActivity : AppCompatActivity(){
             )
 
         override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-            holder.bind(itemList[position], onNoteClickListener)
+            holder.bind(itemList[position], onNoteClickListener, onNoteLongClickListener)
         }
 
         override fun getItemCount(): Int = itemList.size
 
+        // ViewHolder
         class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            fun bind(note: Note, onNoteClickListener: OnNoteClickListener){
+            fun bind(note: Note, onNoteClickListener: OnNoteClickListener,
+                     onNoteLongClickListener: OnNoteLongClickListener){
                 itemView.apply {
                     viewNoteText.text = note.noteText
                     setOnClickListener { onNoteClickListener.editNote(note.id) }
+                    setOnLongClickListener {
+                        onNoteLongClickListener.deleteNote(note.id)
+                        return@setOnLongClickListener true
+                    }
                 }
             }
         }
