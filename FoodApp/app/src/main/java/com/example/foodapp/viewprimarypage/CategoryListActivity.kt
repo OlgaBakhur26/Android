@@ -2,10 +2,10 @@ package com.example.foodapp.viewprimarypage
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,27 +45,27 @@ class CategoryListActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
-            android.R.id.home ->  finish()
+            android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun startFavoriteDishesActivity(){
+    private fun startFavoriteDishesActivity() {
         val instance = FavoriteDishesActivity.newInstance()
         val intent = instance.newIntent(this)
         startActivity(intent)
     }
 
-    private fun getCategoryName(): String{
+    private fun getCategoryName(): String {
         val intent = intent
         return intent.getStringExtra(KEY_EXTRA_CATEGORY_NAME) as String
     }
 
     private fun initItemList() {
         recycleViewCategoryList.apply {
-            adapter = CategoryListAdapter(object : OnDishByIdClickListener{
+            adapter = CategoryListAdapter(object : OnDishByIdClickListener {
                 override fun displayDishById(dishId: String) {
                     startDishFullDescriptionActivity(dishId)
                 }
@@ -75,7 +75,7 @@ class CategoryListActivity : AppCompatActivity() {
         }
     }
 
-    private fun startDishFullDescriptionActivity(dishId: String){
+    private fun startDishFullDescriptionActivity(dishId: String) {
         val instance = DishFullDescriptionActivity.newInstance()
         val intent = instance.newIntent(this@CategoryListActivity)
         intent.putExtra(KEY_EXTRA_DISH_ID, dishId)
@@ -94,10 +94,13 @@ class CategoryListActivity : AppCompatActivity() {
         ).getDishListByCategory(categoryName)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { list -> (recycleViewCategoryList.adapter as? CategoryListAdapter)?.loadItemList(list) },
+                { list ->
+                    (recycleViewCategoryList.adapter as? CategoryListAdapter)?.loadItemList(
+                        list
+                    )
+                },
                 { throwable -> Log.d("CategoryListActivity", throwable.toString()) }
             )
-
     }
 
     override fun onDestroy() {
@@ -109,22 +112,22 @@ class CategoryListActivity : AppCompatActivity() {
         fun newInstance() = CategoryListActivity()
     }
 
-    fun newIntent(context: Context): Intent{
+    fun newIntent(context: Context): Intent {
         return Intent(context, CategoryListActivity::class.java)
     }
-
 
 
     // ADAPTER
     class CategoryListAdapter(
         private val onDishByIdClickListener: OnDishByIdClickListener
-    ) : RecyclerView.Adapter<CategoryListAdapter.CategoryListViewHolder>(){
+    ) : RecyclerView.Adapter<CategoryListAdapter.CategoryListViewHolder>() {
 
         private val itemList = mutableListOf<DishListByCategoryDataModel>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListViewHolder =
             CategoryListViewHolder(
-                itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_category_list, parent, false)
+                itemView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_category_list, parent, false)
             )
 
         override fun onBindViewHolder(holder: CategoryListViewHolder, position: Int) {
@@ -139,9 +142,12 @@ class CategoryListActivity : AppCompatActivity() {
         }
 
         // ViewHolder
-        class CategoryListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        class CategoryListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(dishListByCategoryDataModel: DishListByCategoryDataModel, onDishByIdClickListener: OnDishByIdClickListener){
+            fun bind(
+                dishListByCategoryDataModel: DishListByCategoryDataModel,
+                onDishByIdClickListener: OnDishByIdClickListener
+            ) {
                 itemView.apply {
                     viewDishName.text = dishListByCategoryDataModel.dishName
 
@@ -149,7 +155,11 @@ class CategoryListActivity : AppCompatActivity() {
                         .load(dishListByCategoryDataModel.urlToImage)
                         .into(viewItemPhoto)
 
-                    setOnClickListener { onDishByIdClickListener.displayDishById(dishListByCategoryDataModel.dishId) }
+                    setOnClickListener {
+                        onDishByIdClickListener.displayDishById(
+                            dishListByCategoryDataModel.dishId
+                        )
+                    }
                 }
             }
         }

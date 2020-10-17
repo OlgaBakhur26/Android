@@ -3,7 +3,6 @@ package com.example.foodapp.imagemanager
 import android.widget.ImageView
 import com.example.foodapp.R
 import com.example.foodapp.repositoryarea.AreaListDataModel
-import com.example.foodapp.repositorycategory.CategoryListDataModel
 
 class AreaImageManager {
     companion object {

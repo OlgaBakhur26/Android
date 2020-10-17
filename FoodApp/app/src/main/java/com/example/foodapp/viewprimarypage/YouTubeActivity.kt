@@ -2,17 +2,16 @@ package com.example.foodapp.viewprimarypage
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.R
-import kotlinx.android.synthetic.main.activity_area_list.*
 import kotlinx.android.synthetic.main.activity_you_tube.*
 
 const val KEY_EXTRA_URL_TO_VIDEO = "KEY_EXTRA_URL_TO_VIDEO"
 
-class YouTubeActivity : AppCompatActivity(){
+class YouTubeActivity : AppCompatActivity() {
 
     private lateinit var urlToVideo: String
 
@@ -34,26 +33,30 @@ class YouTubeActivity : AppCompatActivity(){
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
-            android.R.id.home ->  finish()
+            android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun startFavoriteDishesActivity(){
+    private fun startFavoriteDishesActivity() {
         val instance = FavoriteDishesActivity.newInstance()
         val intent = instance.newIntent(this)
         startActivity(intent)
     }
 
-    private fun loadYouTubeFragment(urlToVideo: String){
+    private fun loadYouTubeFragment(urlToVideo: String) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerYouTube, YouTubeFragment.newInstance(urlToVideo), YouTubeFragment.TAG)
+            .add(
+                R.id.fragmentContainerYouTube,
+                YouTubeFragment.newInstance(urlToVideo),
+                YouTubeFragment.TAG
+            )
             .commit()
     }
 
-    private fun getURLtoVideo(): String{
+    private fun getURLtoVideo(): String {
         val intent = intent
         return intent.getStringExtra(KEY_EXTRA_URL_TO_VIDEO) as String
     }

@@ -28,6 +28,7 @@ class CategoryImageManager {
             "Pork" -> imageView.setImageResource(R.drawable.pork)
             "Seafood" -> imageView.setImageResource(R.drawable.seafood)
             "Side" -> imageView.setImageResource(R.drawable.side)
+            "Starter" -> imageView.setImageResource(R.drawable.starter)
             "Vegan" -> imageView.setImageResource(R.drawable.vegan)
             "Vegetarian" -> imageView.setImageResource(R.drawable.vegetarian)
         }

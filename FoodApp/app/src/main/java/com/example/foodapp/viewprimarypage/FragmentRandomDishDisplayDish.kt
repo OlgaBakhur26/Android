@@ -20,7 +20,11 @@ class FragmentRandomDishDisplayDish : Fragment() {
     private var disposable: Disposable? = null
     private lateinit var id: String
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? =
         inflater.inflate(R.layout.fragment_random_dish_display_dish, container, false)
 
     override fun onResume() {
@@ -30,7 +34,7 @@ class FragmentRandomDishDisplayDish : Fragment() {
         viewRandomDish.setOnClickListener { startDishFullDescriptionActivity(id) }
     }
 
-    private fun startDishFullDescriptionActivity(dishId: String){
+    private fun startDishFullDescriptionActivity(dishId: String) {
         val instance = DishFullDescriptionActivity.newInstance()
         val intent = this@FragmentRandomDishDisplayDish.context?.let { instance.newIntent(it) }
         intent?.putExtra(KEY_EXTRA_DISH_ID, dishId)
@@ -45,7 +49,7 @@ class FragmentRandomDishDisplayDish : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { dish ->
-                    with(dish){
+                    with(dish) {
                         viewDishName.text = dishName
                         viewCategoryTitle.text = dishCategory
                         viewAreaTitle.text = dishArea
@@ -57,7 +61,7 @@ class FragmentRandomDishDisplayDish : Fragment() {
                                 .into(viewItemPhoto)
                         }
                     }
-                    this.id = dish.dishId  ////?????????//
+                    this.id = dish.dishId
                 },
                 { throwable -> Log.d("FragmentRandomDishDisplayDish", throwable.toString()) }
             )

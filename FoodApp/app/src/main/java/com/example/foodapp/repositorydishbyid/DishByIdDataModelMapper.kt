@@ -1,12 +1,10 @@
 package com.example.foodapp.repositorydishbyid
 
-import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
-import java.lang.StringBuilder
 import java.util.regex.Pattern
 
-class DishByIdDataModelMapper : (String) -> DishByIdDataModel{
+class DishByIdDataModelMapper : (String) -> DishByIdDataModel {
     override fun invoke(jsonData: String): DishByIdDataModel {
         val jsonObject = JSONObject(jsonData)
         val jsonListArray = jsonObject.getJSONArray("meals")
@@ -31,51 +29,60 @@ class DishByIdDataModelMapper : (String) -> DishByIdDataModel{
         )
     }
 
-    private fun getIngredientsTitles(jsonListArray: JSONArray): MutableList<String>{
+    private fun getIngredientsTitles(jsonListArray: JSONArray): MutableList<String> {
         val pattern = Pattern.compile("strIngredient\\d+")
         val matcher = pattern.matcher(jsonListArray.getJSONObject(0).toString())
         val listOfTitles = mutableListOf<String>()
-        while (matcher.find()){
+        while (matcher.find()) {
             listOfTitles.add(matcher.group())
         }
         return listOfTitles
     }
 
-    private fun getIngredientsList(jsonListArray: JSONArray, ingredientsTitles: MutableList<String>): MutableList<String>{
+    private fun getIngredientsList(
+        jsonListArray: JSONArray,
+        ingredientsTitles: MutableList<String>
+    ): MutableList<String> {
         val listOfIngredients = mutableListOf<String>()
-        for (index in 0 until ingredientsTitles.size){
+        for (index in 0 until ingredientsTitles.size) {
             val ingredient = jsonListArray.getJSONObject(0).getString(ingredientsTitles[index])
-            if (ingredient != "" && ingredient != "null"){
+            if (ingredient != "" && ingredient != "null") {
                 listOfIngredients.add(ingredient)
             }
         }
         return listOfIngredients
     }
 
-    private fun getMeasureTitles(jsonListArray: JSONArray): MutableList<String>{
+    private fun getMeasureTitles(jsonListArray: JSONArray): MutableList<String> {
         val pattern = Pattern.compile("strMeasure\\d+")
         val matcher = pattern.matcher(jsonListArray.getJSONObject(0).toString())
         val listOfTitles = mutableListOf<String>()
-        while (matcher.find()){
+        while (matcher.find()) {
             listOfTitles.add(matcher.group())
         }
         return listOfTitles
     }
 
-    private fun getMeasureList(jsonListArray: JSONArray, measureTitles: MutableList<String>): MutableList<String>{
+    private fun getMeasureList(
+        jsonListArray: JSONArray,
+        measureTitles: MutableList<String>
+    ): MutableList<String> {
         val listOfMeasures = mutableListOf<String>()
-        for (index in 0 until measureTitles.size){
+        for (index in 0 until measureTitles.size) {
             val measure = jsonListArray.getJSONObject(0).getString(measureTitles[index])
-            if (measure != "" && measure != "null"){
+            if (measure != "" && measure != "null") {
                 listOfMeasures.add(measure)
             }
         }
         return listOfMeasures
     }
 
-    private fun concatIngredientsAndMeasures(ingredientsList: MutableList<String>, measureList: MutableList<String>): String{
+    private fun concatIngredientsAndMeasures(
+        ingredientsList: MutableList<String>,
+        measureList: MutableList<String>
+    ): String {
         val stringBuilder = StringBuilder()
-        for (index in 0 until ingredientsList.size){
+        for (index in 0 until ingredientsList.size) {
             stringBuilder.append(ingredientsList[index])
             stringBuilder.append(": ")
             stringBuilder.append(measureList[index])

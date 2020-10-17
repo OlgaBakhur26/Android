@@ -17,12 +17,12 @@ abstract class FavoriteDishesDatabase : RoomDatabase() {
         fun getDatabaseInstance(context: Context): FavoriteDishesDatabase {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        FavoriteDishesDatabase::class.java,
-                        "FAVORITES"
+                    context.applicationContext,
+                    FavoriteDishesDatabase::class.java,
+                    "FAVORITES"
                 )
-                        .allowMainThreadQueries()
-                        .build()
+                    .allowMainThreadQueries()
+                    .build()
             }
             return INSTANCE as FavoriteDishesDatabase
         }

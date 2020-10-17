@@ -3,15 +3,14 @@ package com.example.foodapp.viewprimarypage
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,16 +19,13 @@ import com.example.foodapp.R
 import com.example.foodapp.databasefavorite.FavoriteDishesDao
 import com.example.foodapp.databasefavorite.FavoriteDishesDatabase
 import com.example.foodapp.repositorydishbyid.DishByIdDataModel
-import kotlinx.android.synthetic.main.activity_category_list.*
-import kotlinx.android.synthetic.main.activity_dish_full_description.*
-import kotlinx.android.synthetic.main.activity_dish_full_description.toolbarDishFullDescriptionActivity
 import kotlinx.android.synthetic.main.activity_favorite_dishes.*
 import kotlinx.android.synthetic.main.item_favorite_dishes.view.*
 
 class FavoriteDishesActivity : AppCompatActivity() {
 
     private lateinit var favoriteDishesDao: FavoriteDishesDao
-    private lateinit var favoriteDishesList: List<DishByIdDataModel>
+    private lateinit var favoriteDishesList: MutableList<DishByIdDataModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,29 +35,29 @@ class FavoriteDishesActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
+        favoriteDishesList = mutableListOf()
+
         val favoriteDishesDatabase = FavoriteDishesDatabase.getDatabaseInstance(this)
-        if (favoriteDishesDatabase != null){
+        if (favoriteDishesDatabase != null) {
             favoriteDishesDao = favoriteDishesDatabase.getFavoriteDishesDao()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        favoriteDishesList = loadDishesList()
+        loadDishesList()
         initItemList()
     }
 
     private fun initItemList() {
         recycleViewFavoriteDishesList.apply {
-            adapter = FavoriteDishesActivity.FavoriteDishAdapter(favoriteDishesList, object : OnDishByIdClickListener {
+            adapter = FavoriteDishAdapter(favoriteDishesList, object : OnDishByIdClickListener {
                 override fun displayDishById(dishId: String) {
                     startDishFullDescriptionActivity(dishId)
-                    // LiveData
                 }
-            }, object : OnDishByIdLongClickListener{
+            }, object : OnDishByIdLongClickListener {
                 override fun deleteDishById(dishId: String) {
                     showDialogDeleteFavorite(dishId)
-                    // LiveData
                 }
 
             })
@@ -70,7 +66,7 @@ class FavoriteDishesActivity : AppCompatActivity() {
         }
     }
 
-    private fun startDishFullDescriptionActivity(dishId: String){
+    private fun startDishFullDescriptionActivity(dishId: String) {
         val instance = DishFullDescriptionActivity.newInstance()
         val intent = instance.newIntent(this@FavoriteDishesActivity)
         intent.putExtra(KEY_EXTRA_DISH_ID, dishId)
@@ -84,14 +80,19 @@ class FavoriteDishesActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadDishesList(): List<DishByIdDataModel>{
-        return favoriteDishesDao.getAll()
+    private fun loadDishesList() {
+        favoriteDishesDao.getAll().observe(this, Observer { list ->
+            (recycleViewFavoriteDishesList.adapter as? FavoriteDishAdapter)?.updateItemList(list)
+        })
     }
 
-    private fun showDialogDeleteFavorite(dishId: String){
-        val dishToDelete = favoriteDishesDao.getById(dishId)
+    private fun showDialogDeleteFavorite(dishId: String) {
+        val dishToDelete = favoriteDishesDao.getByIdGeneral(dishId)
         val dishName = dishToDelete.dishName
-        val dialog = AlertDialog.Builder(this@FavoriteDishesActivity, R.style.Widget_AppCompat_ButtonBar_AlertDialog)
+        val dialog = AlertDialog.Builder(
+            this@FavoriteDishesActivity,
+            R.style.Widget_AppCompat_ButtonBar_AlertDialog
+        )
         dialog
             .setTitle(R.string.deleteDishDialogTitle)
             .setMessage(dishName)
@@ -117,14 +118,15 @@ class FavoriteDishesActivity : AppCompatActivity() {
 
     // ADAPTER
     class FavoriteDishAdapter(
-        private val itemList: List<DishByIdDataModel>,
+        private val itemList: MutableList<DishByIdDataModel>,
         private val onDishByIdClickListener: OnDishByIdClickListener,
         private val onDishByIdLongClickListener: OnDishByIdLongClickListener
-    ) : RecyclerView.Adapter<FavoriteDishAdapter.FavoriteDishViewHolder>(){
+    ) : RecyclerView.Adapter<FavoriteDishAdapter.FavoriteDishViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteDishViewHolder =
             FavoriteDishViewHolder(
-                itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_favorite_dishes, parent, false)
+                itemView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_favorite_dishes, parent, false)
             )
 
         override fun onBindViewHolder(holder: FavoriteDishViewHolder, position: Int) {
@@ -133,11 +135,22 @@ class FavoriteDishesActivity : AppCompatActivity() {
 
         override fun getItemCount(): Int = itemList.size
 
-        // ViewHolder
-        class FavoriteDishViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun updateItemList(itemListIn: List<DishByIdDataModel>) {
+            itemList.apply {
+                clear()
+                addAll(itemListIn)
+            }
+            notifyDataSetChanged()
+        }
 
-            fun bind(dishByIdDataModel: DishByIdDataModel, onDishByIdClickListener: OnDishByIdClickListener,
-                     onDishByIdLongClickListener: OnDishByIdLongClickListener){
+        // ViewHolder
+        class FavoriteDishViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+            fun bind(
+                dishByIdDataModel: DishByIdDataModel,
+                onDishByIdClickListener: OnDishByIdClickListener,
+                onDishByIdLongClickListener: OnDishByIdLongClickListener
+            ) {
                 itemView.apply {
                     viewDishName.text = dishByIdDataModel.dishName
                     viewCategoryTitle.text = dishByIdDataModel.categoryName

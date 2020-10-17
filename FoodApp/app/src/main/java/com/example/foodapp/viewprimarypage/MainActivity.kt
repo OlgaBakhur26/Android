@@ -1,12 +1,12 @@
 package com.example.foodapp.viewprimarypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.R
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), OnItemCategoryClickListener, OnItemAreaClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity(), OnItemCategoryClickListener, OnItemAre
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun startFavoriteDishesActivity(){
+    private fun startFavoriteDishesActivity() {
         val instance = FavoriteDishesActivity.newInstance()
         val intent = instance.newIntent(this)
         startActivity(intent)

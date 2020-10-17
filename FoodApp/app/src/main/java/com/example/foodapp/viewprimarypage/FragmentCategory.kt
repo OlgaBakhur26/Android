@@ -1,7 +1,6 @@
 package com.example.foodapp.viewprimarypage
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,7 +20,6 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.item_category.view.*
 import okhttp3.OkHttpClient
-import java.util.*
 
 class FragmentCategory : Fragment() {
 
@@ -135,5 +133,4 @@ class FragmentCategory : Fragment() {
             }
         }
     }
-
 }

@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "FAVORITES")
-class DishByIdDataModel(
+data class DishByIdDataModel(
     @PrimaryKey
     val dishId: String,
     val dishName: String,

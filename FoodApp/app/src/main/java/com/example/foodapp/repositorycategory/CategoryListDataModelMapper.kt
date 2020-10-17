@@ -1,9 +1,8 @@
 package com.example.foodapp.repositorycategory
 
-import android.util.Log
 import org.json.JSONObject
 
-class CategoryListDataModelMapper : (String) -> List<CategoryListDataModel>{
+class CategoryListDataModelMapper : (String) -> List<CategoryListDataModel> {
     override fun invoke(jsonData: String): List<CategoryListDataModel> {
         val jsonObject = JSONObject(jsonData)
         val jsonListArray = jsonObject.getJSONArray("meals")

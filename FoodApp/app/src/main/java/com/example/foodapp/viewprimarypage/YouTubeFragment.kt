@@ -18,7 +18,8 @@ import kotlinx.android.synthetic.main.fragment_youtube_web_view.*
 class YouTubeFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View =
         inflater.inflate(R.layout.fragment_youtube_web_view, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

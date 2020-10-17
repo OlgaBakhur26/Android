@@ -2,6 +2,6 @@ package com.example.foodapp.repositorydishbyid
 
 import io.reactivex.Single
 
-interface DishByIdRepository{
+interface DishByIdRepository {
     fun getDishById(id: String): Single<DishByIdDataModel>
 }

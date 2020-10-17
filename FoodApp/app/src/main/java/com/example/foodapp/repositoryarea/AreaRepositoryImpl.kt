@@ -9,7 +9,7 @@ import okhttp3.ResponseBody
 class AreaRepositoryImpl(
     private val okHttpClient: OkHttpClient,
     private val areaListDataModelMapper: (String) -> List<AreaListDataModel>
-) : AreaRepository{
+) : AreaRepository {
 
     override fun getAreaList(): Single<List<AreaListDataModel>> {
         val url = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"

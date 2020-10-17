@@ -1,6 +1,5 @@
 package com.example.foodapp.repositoryarea
 
-import android.util.Log
 import org.json.JSONObject
 
 class AreaListDataModelMapper : (String) -> List<AreaListDataModel> {

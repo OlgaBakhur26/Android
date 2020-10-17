@@ -2,7 +2,7 @@ package com.example.foodapp.repositorydishlistbycategory
 
 import org.json.JSONObject
 
-class DishListByCategoryDataModelMapper : (String) -> List<DishListByCategoryDataModel>{
+class DishListByCategoryDataModelMapper : (String) -> List<DishListByCategoryDataModel> {
     override fun invoke(jsonData: String): List<DishListByCategoryDataModel> {
         val jsonObject = JSONObject(jsonData)
         val jsonListArray = jsonObject.getJSONArray("meals")

@@ -2,10 +2,10 @@ package com.example.foodapp.viewprimarypage
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,27 +45,27 @@ class AreaListActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.navigateToFavoriteDishesActivity -> startFavoriteDishesActivity()
-            android.R.id.home ->  finish()
+            android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun startFavoriteDishesActivity(){
+    private fun startFavoriteDishesActivity() {
         val instance = FavoriteDishesActivity.newInstance()
         val intent = instance.newIntent(this)
         startActivity(intent)
     }
 
-    private fun getAreaName(): String{
+    private fun getAreaName(): String {
         val intent = intent
         return intent.getStringExtra(KEY_EXTRA_AREA_NAME) as String
     }
 
     private fun initItemList() {
         recycleViewAreaList.apply {
-            adapter = AreaListAdapter(object : OnDishByIdClickListener{
+            adapter = AreaListAdapter(object : OnDishByIdClickListener {
                 override fun displayDishById(dishId: String) {
                     startDishFullDescriptionActivity(dishId)
                 }
@@ -75,7 +75,7 @@ class AreaListActivity : AppCompatActivity() {
         }
     }
 
-    private fun startDishFullDescriptionActivity(dishId: String){
+    private fun startDishFullDescriptionActivity(dishId: String) {
         val instance = DishFullDescriptionActivity.newInstance()
         val intent = instance.newIntent(this@AreaListActivity)
         intent.putExtra(KEY_EXTRA_DISH_ID, dishId)
@@ -114,19 +114,18 @@ class AreaListActivity : AppCompatActivity() {
     }
 
 
-
     // ADAPTER
     class AreaListAdapter(
         private val onDishByIdClickListener: OnDishByIdClickListener
-    ) : RecyclerView.Adapter<AreaListAdapter.AreaListViewHolder>(){
+    ) : RecyclerView.Adapter<AreaListAdapter.AreaListViewHolder>() {
 
         private val itemList = mutableListOf<DishListByAreaDataModel>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AreaListViewHolder =
             AreaListViewHolder(
-                itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_area_list, parent, false)
+                itemView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_area_list, parent, false)
             )
-
 
         override fun onBindViewHolder(holder: AreaListViewHolder, position: Int) {
             holder.bind(itemList[position], onDishByIdClickListener)
@@ -140,12 +139,19 @@ class AreaListActivity : AppCompatActivity() {
         }
 
         // ViewHolder
-        class AreaListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        class AreaListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(dishListByAreaDataModel: DishListByAreaDataModel, onDishByIdClickListener: OnDishByIdClickListener){
+            fun bind(
+                dishListByAreaDataModel: DishListByAreaDataModel,
+                onDishByIdClickListener: OnDishByIdClickListener
+            ) {
                 itemView.apply {
                     viewDishName.text = dishListByAreaDataModel.dishName
-                    setOnClickListener { onDishByIdClickListener.displayDishById(dishListByAreaDataModel.dishId) }
+                    setOnClickListener {
+                        onDishByIdClickListener.displayDishById(
+                            dishListByAreaDataModel.dishId
+                        )
+                    }
 
                     Glide.with(context)
                         .load(dishListByAreaDataModel.urlToImage)
