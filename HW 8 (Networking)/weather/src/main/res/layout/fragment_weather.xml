@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/framePadding"
+        android:paddingTop="@dimen/framePadding"
+        android:paddingRight="@dimen/framePadding"
+        android:paddingBottom="@dimen/views_inside_margin">
+
+    <TextView
+        android:id="@+id/viewCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Minsk"
+        style="@style/mainViewTextStyle"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageView
+        android:id="@+id/viewIcon"
+        android:layout_width="@dimen/main_view_icon_size"
+        android:layout_height="@dimen/main_view_icon_size"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        tools:src="@drawable/preview_icon"
+        app:layout_constraintLeft_toRightOf="@id/viewCity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="@dimen/main_view_icon_marginBottom"/>
+
+    <TextView
+        android:id="@+id/viewTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/mainViewTextStyle"
+        android:textColor="@android:color/black"
+        tools:text="-20C"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewCity"/>
+
+    <TextView
+        android:id="@+id/viewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/mainViewTextStyle"
+        android:textSize="@dimen/main_view_text_size_Small"
+        tools:text="Cloudy"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewTemperature"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/viewWeatherList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:paddingStart="@dimen/items_weather_sides_padding"
+        android:paddingEnd="@dimen/items_weather_sides_padding"/>
+
+</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingButtonNavigateToCityActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_floating_button_navigate_to_city_activity"
+        android:backgroundTint="@color/floatingButtonColor"
+        app:fabCustomSize="@dimen/fabCustomSize"
+        app:elevation="@dimen/floating_button_elevation_size"
+        android:layout_margin="24dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+

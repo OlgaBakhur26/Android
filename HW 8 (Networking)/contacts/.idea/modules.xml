@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-583333762/Flags.iml" filepath="$PROJECT_DIR$/.idea/modules/-583333762/Flags.iml" group="Flags" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1065185552/app.iml" filepath="$PROJECT_DIR$/.idea/modules/1065185552/app.iml" group="Flags/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/contacts.iml" filepath="$PROJECT_DIR$/.idea/modules/contacts.iml" group="Flags/contacts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1850004423/customview.iml" filepath="$PROJECT_DIR$/.idea/modules/1850004423/customview.iml" group="Flags/customview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1623371272/layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/-1623371272/layouts.iml" group="Flags/layouts" />
+    </modules>
+  </component>
+</project>
