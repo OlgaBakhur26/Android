@@ -18,7 +18,6 @@ class WeatherActivity : AppCompatActivity() {
         setContentView(R.layout.activity_weather)
 
         setSupportActionBar(toolbarMainActivity)
-//        cityNamePrefs = CityNamePrefs.getCityNamePrefs(this)
         showWeatherListFragment()
 
         settingsButton.setOnClickListener(View.OnClickListener {

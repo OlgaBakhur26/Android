@@ -2,9 +2,7 @@ package com.example.weather.citieslistmvvm.view
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
@@ -12,43 +10,36 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weather.weatherlistmvp.view.WeatherActivity
 import com.example.weather.R
-import com.example.weather.settingscityname.CityNamePrefs
-import com.example.weather.citieslistmvvm.model.AppDatabase
-import com.example.weather.citieslistmvvm.model.CityDao
 import com.example.weather.citieslistmvvm.model.CityDataModel
+import com.example.weather.citieslistmvvm.viewmodel.CityListViewModel
+import com.example.weather.settingscityname.CityNamePrefs
 import kotlinx.android.synthetic.main.fragment_city.*
 import kotlinx.android.synthetic.main.item_city.view.*
 import java.util.*
 
 class CityListFragment : Fragment() {
 
-    private lateinit var cityDao: CityDao
-    private lateinit var cityList: List<CityDataModel> // LiveDate
-
+    private lateinit var cityList: List<CityDataModel>
     private lateinit var cityNamePrefs: CityNamePrefs
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val appDatabase = this@CityListFragment.context?.let { AppDatabase.getAppDatabaseInstance(it) }
-        if (appDatabase != null) {
-            cityDao = appDatabase.getCityDao()
-        }
-        cityList = cityDao.getAll()
-
-        Log.d("fun", "onCreate")
-    }
+    private lateinit var viewModel: CityListViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_city, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this@CityListFragment).get(CityListViewModel::class.java)
+        viewModel.loadCityList(this@CityListFragment.context!!)
+                .observe(this@CityListFragment, androidx.lifecycle.Observer { list ->
+                    cityList = list
+                })
+
         initItemList()
 
         floatingButtonAddCity.setOnClickListener(View.OnClickListener {
@@ -59,34 +50,18 @@ class CityListFragment : Fragment() {
     private fun initItemList() {
         cityNamePrefs = CityNamePrefs.getCityNamePrefs(this@CityListFragment.context)
         viewCityList.apply {
-                    adapter = CityAdapter(cityList, object : OnCityClickListener {
-                        override fun onCityClick(cityDataModel: CityDataModel) {
-                            cityNamePrefs.saveCityName(cityDataModel.cityName)
-                            startWeatherActivity(cityDataModel)
-                        }
-                    })
-                    layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-                    addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            adapter = CityAdapter(cityList, object : OnCityClickListener {
+                override fun onCityClick(cityDataModel: CityDataModel) {
+                    cityNamePrefs.saveCityName(cityDataModel.cityName)
+                    this@CityListFragment.activity?.finish()
+                }
+            })
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
 
-    private fun startWeatherActivity(cityDataModel: CityDataModel){
-        val intent = Intent(this@CityListFragment.context, WeatherActivity::class.java)
-        startActivity(intent)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        updateCityList()
-    }
-
-    private fun updateCityList() {
-        val adapter = viewCityList.adapter as? CityAdapter
-        adapter?.itemList = cityDao.getAll()
-        adapter?.notifyDataSetChanged()
-    }
-
-    private fun showDialog(){
+    private fun showDialog() {
         val enterCity = EditText(this@CityListFragment.context)
         enterCity.hint = getString(R.string.dialogHint)
 
@@ -107,12 +82,12 @@ class CityListFragment : Fragment() {
                                     id = UUID.randomUUID().toString(),
                                     cityName = enterCity.text.toString()
                             )
-                            cityDao.insert(newCity)
+                            viewModel.addCity(this@CityListFragment.context!!, newCity)
                         })
-                        .setNegativeButton(getString(R.string.dialogNegativeButton),
-                                DialogInterface.OnClickListener { dialog, which ->
-                                })
-                        .create()
+                .setNegativeButton(getString(R.string.dialogNegativeButton),
+                        DialogInterface.OnClickListener { dialog, which ->
+                        })
+                .create()
         dialog.show()
     }
 
@@ -147,11 +122,12 @@ class CityListFragment : Fragment() {
                     viewCityName.text = cityDataModel.cityName
                     tickMark.setImageResource(R.drawable.tick_mark)
 
-                    if (cityName == cityDataModel.cityName){
+                    if (cityName == cityDataModel.cityName) {
                         tickMark.visibility = VISIBLE
                     }
+
+                    setOnClickListener { cityListener.onCityClick(cityDataModel) }
                 }
-                itemView.setOnClickListener { cityListener.onCityClick(cityDataModel) }
             }
         }
     }
