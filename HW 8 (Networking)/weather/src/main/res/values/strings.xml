@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="city">City</string>
+    <string name="unitCelsius">Celsius</string>
+    <string name="unitFahrenheit">Fahrenheit</string>
+    <string name="toolbarFragmentWeatherTitle">Weather</string>
+    <string name="toolbarFragmentCityTitle">City</string>
+    <string name="toolbarSettingsTitle">Settings</string>
+    <string name="degreesCelsius">C</string>
+    <string name="degreesFahrenheit">F</string>
+    <string name="dialogTitle">Enter city name</string>
+    <string name="dialogHint">City</string>
+    <string name="dialogPositiveButton">Done</string>
+    <string name="dialogNegativeButton">Cancel</string>
+</resources>

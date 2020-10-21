@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/frameMargin_itemContact"
+    android:layout_marginRight="@dimen/frameMargin_itemContact">
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/widgetMargin_itemContact"
+        android:layout_marginBottom="@dimen/widgetMargin_itemContact"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6.5"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/widgetMargin_itemContact"
+        android:layout_marginTop="@dimen/widgetMargin_itemContact"
+        android:layout_marginBottom="@dimen/widgetMargin_itemContact">
+
+        <TextView
+            android:id="@+id/item_personName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/nameTextSize_itemContact"
+            android:textColor="@color/nameTextColor_itemContact" />
+
+        <TextView
+            android:id="@+id/item_personContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/contactTextSize_itemContact"
+            android:textColor="@color/contactTextColor_itemContact"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BroadcastReceiver_Service</string>
+    <string name="serviceNotificationTitle">MyService</string>
+    <string name="serviceNotificationText">Service is working</string>
+    <string name="exceptionNotificationText">Something went wrong during the Log saving process</string>
+    <string name="choseStorageType">Выберите тип хранилища</string>
+    <string name="internalStorage">Внутреннее хранилище</string>
+    <string name="externalStorage">Внешнее хранилище</string>
+</resources>
