@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="radiusInnerCircle" format="dimension"/>
+        <attr name="radiusOuterCircle" format="dimension"/>
+        <attr name="colorRightBottomSector" format="color"/>
+        <attr name="colorLeftBottomSector" format="color"/>
+        <attr name="colorLeftTopSector" format="color"/>
+        <attr name="colorRightTopSector" format="color"/>
+        <attr name="colorInnerCircle" format="color"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CustomView</string>
+    <string name="notificationMessage">Choose the notification type</string>
+    <string name="notificationType">ON - Snackbar \nOFF - Toast </string>
+</resources>
